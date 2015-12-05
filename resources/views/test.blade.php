@@ -37,8 +37,6 @@
     </head>
     <body>
         <div class="container">
-            <a href="/auth/login" >Login</a>
-            <a href="/auth/register">Registrar</a>
             <div class="content">
                 <div class="title">Laravel 5</div>
             </div>
