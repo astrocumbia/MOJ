@@ -18,6 +18,20 @@ Route::get('/', function () {
 
 
 
+/*
+|--------------------------------------------------------------------------
+| Paginas con prefijo /contest
+|--------------------------------------------------------------------------
+|
+*/
+Route::group(['prefix' => '/contest'], function()
+{
+	// seccion administracion de usuarios
+	Route::get('/', 'ContestController@show');
+ 
+});
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +46,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	Route::get('/home', function() {
 		return view('admin/home');    
 	});
+
+
 
 	/*
 	|--------------------------------------------------------------------------
