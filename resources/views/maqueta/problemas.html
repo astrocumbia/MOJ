@@ -43,6 +43,15 @@
     <!-- OneUI CSS framework -->
     <link rel="stylesheet" id="css-main" href="assets/css/oneui.css">
 
+
+
+    <link rel="stylesheet" href="assets/js/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="assets/js/plugins/select2/select2-bootstrap.css">
+
+
+
+
+
 </head>
 <body>
 
@@ -187,6 +196,7 @@
                                 <th class="text-center">Propietario</th>
                                 <th class="text-center">Memoria</th>
                                 <th class="text-center">tiempo</th>
+                                <th class="text-center">Categoría</th>
                                 <th class="text-center" style="width: 100px;">Acciones</th>
                             </tr>
                             </thead>
@@ -200,6 +210,7 @@
                                 <td class="text-center">Positr0nix</td>
                                 <td class="text-center">2 MB</td>
                                 <td class="text-center">2 S</td>
+                                <td class="text-center"><span class="label label-primary">Senior</span></td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar usuario"><i class="fa fa-pencil"></i></button>
@@ -238,7 +249,7 @@
                                     <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
                                 </li>
                             </ul>
-                            <h3 class="block-title">Crear un nuevo usuario</h3>
+                            <h3 class="block-title">Agregar un problema</h3>
                         </div>
 
                         <div class="block-content">
@@ -248,7 +259,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-12" for="nombre">Nombre</label>
                                     <div class="col-xs-12">
-                                        <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre...">
+                                        <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingresa el nombre del problema...">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -294,6 +305,19 @@
                                     <label class="col-xs-12" for="salida">Archivo de salida</label>
                                     <div class="col-xs-12">
                                         <input type="file" id="salida" name="salida">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="categoria">Categoría</label>
+                                    <div class="col-xs-12">
+                                        <select class="js-select2 form-control" id="categoria" name="categoria" style="width: 100%;" data-placeholder="Selecciona una categoría...">
+                                            <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
+                                            <option value="0">General</option>
+                                            <option value="2">Senior</option>
+                                            <option value="3">Junior</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -395,10 +419,14 @@
 
 <!-- Page JS Code -->
 <script src="assets/js/pages/base_pages_dashboard.js"></script>
+
+
+<script src="assets/js/plugins/select2/select2.full.min.js"></script>
+
+
 <script>
     $(function () {
-        // Init page helpers (Slick Slider plugin)
-        App.initHelpers('slick');
+        App.initHelpers(['slick',  'select2']);
     });
 </script>
 </body>
