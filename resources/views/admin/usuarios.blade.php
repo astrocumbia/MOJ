@@ -1,3 +1,5 @@
+@include('admin.includes.head')
+
     <!-- Main Container -->
     <main id="main-container">
         <!-- Stats -->
@@ -246,3 +248,5 @@
     </div>
 </div>
 <!-- END Apps Modal -->
+
+@include('admin.includes.footer')

@@ -1,3 +1,5 @@
+@include('admin.includes.head')
+
     <!-- Main Container -->
     <main id="main-container">
         <!-- Stats -->
@@ -19,7 +21,9 @@
 
             <div class="row" style="padding: 0px 15px 20px 0px">
                 <div class="col-md-12">
-                    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-fadein" type="button"><i class="fa fa-plus"></i> Crear Usuario</button>
+                    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-fadein" type="button">
+                        <i class="fa fa-plus"></i> Crear Equipo
+                    </button>
                 </div>
             </div>
 
@@ -32,26 +36,22 @@
                             <thead>
                             <tr>
                                 <th class="text-center" style="width: 50px;">id</th>
-                                <th class="text-center">Usuario</th>
                                 <th class="text-center">Nombre</th>
+                                <th class="text-center">Integrantes</th>
                                 <th class="text-center">Universidad</th>
-                                <th class="text-center">email</th>
-                                <th class="text-center">Equipo</th>
-                                <th class="text-center" style="width: 15%;">Tipo</th>
+                                <th class="text-center">Couch</th>
+                                <th class="text-center">Categoria</th>
                                 <th class="text-center" style="width: 100px;">Acciones</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td class="text-center">1</td>
-                                <td class="text-center">Positr0niz</td>
-                                <td>Irvin Castellanos Juarez</td>
+                                <td class="text-left">Los pochus</td>
+                                <td>Irvin Castellanos Juarez,<br /> Irvin Castellanos Juarez <br/> Irvin Castellanos Juarez</td>
                                 <td>Universidad Tecnológica de la Mixteca</td>
-                                <td class="text-center">Irvin@mictlan.mx</td>
-                                <td class="text-center">StringTokenizer</td>
-                                <td class="text-center">
-                                    <span class="label label-success">Administrador</span>
-                                </td>
+                                <td class="text-center">Galatzia</td>
+                                <td class="text-center"><span class="label label-info">Junior</span></td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar usuario"><i class="fa fa-pencil"></i></button>
@@ -61,15 +61,12 @@
                             </tr>
 
                             <tr>
-                                <td class="text-center">2</td>
-                                <td class="text-center">DanielAlxx</td>
-                                <td >Daniel Alejandro Hernández Gómez</td>
-                                <td >Universidad Tecnológica de la Mixteca</td>
-                                <td class="text-center">daniel@mictlan.mx</td>
-                                <td class="text-center">StringTokenizer</td>
-                                <td class="text-center">
-                                    <span class="label label-info">Juez</span>
-                                </td>
+                                <td class="text-center">1</td>
+                                <td class="text-left">Los pinshis jarcors</td>
+                                <td>Irvin Castellanos Juarez<br />Irvin Castellanos Juarez<br/> Irvin Castellanos Juarez</td>
+                                <td>Universidad Tecnológica de la Mixteca</td>
+                                <td class="text-center">Galatzia</td>
+                                <td class="text-center"><span class="label label-primary">Senior</span></td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar usuario"><i class="fa fa-pencil"></i></button>
@@ -77,10 +74,6 @@
                                     </div>
                                 </td>
                             </tr>
-
-
-
-
 
                             </tbody>
                         </table>
@@ -107,7 +100,7 @@
                                     <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
                                 </li>
                             </ul>
-                            <h3 class="block-title">Crear un nuevo usuario</h3>
+                            <h3 class="block-title">Crear un nuevo equipo</h3>
                         </div>
 
                         <div class="block-content">
@@ -117,30 +110,24 @@
                                 <div class="form-group">
                                     <label class="col-xs-12" for="nombre">Nombre</label>
                                     <div class="col-xs-12">
-                                        <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre...">
+                                        <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre de equipo">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-xs-12" for="apellidop">Apellido paterno</label>
+                                    <label class="col-xs-12" for="apellidop">Integrantes</label>
                                     <div class="col-xs-12">
-                                        <input class="form-control" type="text" id="apellidop" name="apellidop" placeholder="Ingresa tu apellido paterno...">
+                                        <input class="form-control" type="text" id="apellidop" name="apellidop" placeholder="Ingresa el nombre de tus equipos">
                                     </div>
                                 </div>
 
+                                
                                 <div class="form-group">
-                                    <label class="col-xs-12" for="apellidom">Apellido materno</label>
+                                    <label class="col-xs-12" for="register1-password">Couch</label>
                                     <div class="col-xs-12">
-                                        <input class="form-control" type="text" id="apellidom" name="apellidom" placeholder="Ingresa tu apellido materno...">
+                                        <input class="form-control" type="text" id="password" name="password" placeholder="Ingresa tu contraseña">
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="col-xs-12" for="username">Usuario</label>
-                                    <div class="col-xs-12">
-                                        <input class="form-control" type="text" id="username" name="username" placeholder="Ingresa tu nombre de usuario...">
-                                    </div>
-                                </div>
-
+                                
                                 <div class="form-group">
                                     <label class="col-xs-12" for="contact1-subject">Universidad</label>
                                     <div class="col-xs-12">
@@ -153,37 +140,32 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-xs-12" for="contact1-subject">Rol</label>
+                                    <label class="col-xs-12" for="contact1-subject">Categoria</label>
                                     <div class="col-xs-12">
-                                        <select class="form-control" id="rol" name="rol" size="1">
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Juez</option>
-                                            <option value="3">Concursante   </option>
+                                        <select class="form-control" id="universidad" name="categoria" size="1">
+                                            <option value="Junior">Junior</option>
+                                            <option value="Senior">Senior</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-xs-12" for="email">Correo electrónico</label>
-                                    <div class="col-xs-12">
-                                        <input class="form-control" type="email" id="email" name="email" placeholder="Ingresa tu correo...">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-xs-12" for="register1-password">Contraseña</label>
+                                    <label class="col-xs-12" for="contact1-subject">Password</label>
                                     <div class="col-xs-12">
                                         <input class="form-control" type="password" id="password" name="password" placeholder="Ingresa tu contraseña">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="col-xs-12" for="password2">confirma tu contraseña</label>
+                                    <label class="col-xs-12" for="contact1-subject">Confirmar Password</label>
                                     <div class="col-xs-12">
-                                        <input class="form-control" type="password" id="password2" name="password2" placeholder="Confirma tu contraseña...">
+                                        <input class="form-control" type="password" id="password" name="password" placeholder="Ingresa tu contraseña">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <div class="col-xs-12">
-                                        <button class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-plus push-5-r"></i> Registrar</button>
+                                        <button class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-plus push-5-r"></i>Registrar</button>
                                     </div>
                                 </div>
                             </form>
@@ -246,3 +228,5 @@
     </div>
 </div>
 <!-- END Apps Modal -->
+
+@include('admin.includes.footer')

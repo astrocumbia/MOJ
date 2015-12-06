@@ -11,8 +11,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-    <link href="{{ asset("css/bootstrap.min-1.2.css") }}" rel="stylesheet">
-    <link href="{{ asset("css/oneuimin2.css") }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min-1.2.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/oneuimin2.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('js/plugins/select2/select2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('js/plugins/select2/select2-bootstrap.css') }}" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -41,17 +46,17 @@
                             </a>
                         </li>
                         <li>
-                            <a href="frontend_home.html">
+                            <a href="/admin/user">
                                 <i class="si si-user"></i><span class="sidebar-mini-hide">Usuarios</span>
                             </a>
                         </li>
                         <li>
-                            <a href="frontend_home.html">
+                            <a href="/admin/team">
                                 <i class="si si-users"></i><span class="sidebar-mini-hide">Equipos</span>
                             </a>
                         </li>
                         <li>
-                            <a href="frontend_home.html">
+                            <a href="/admin/problem">
                                 <i class="si si-notebook"></i><span class="sidebar-mini-hide">Problemas</span>
                             </a>
                         </li>

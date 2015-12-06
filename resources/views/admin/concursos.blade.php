@@ -40,7 +40,9 @@
                                 <td class="text-center">
                                     <img class="img-avatar img-avatar48" src="assets/img/logoutm.jpg" alt="">
                                 </td>
-                                <td class="font-w600"><a>Segundo concurso de programación de la mixteca</a></td>
+                                <td class="font-w600">
+                                    <a class="link-effect" href="javascript:void(0)">Segundo concurso de programación de la mixteca</a>
+                                </td>
                                 <td>7 de enero de 2015</td>
                                 <td>16:00 Hrs</td>
                                 <td>3 Hrs</td>

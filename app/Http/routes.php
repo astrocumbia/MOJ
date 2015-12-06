@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
-
+ 
 
 
 
@@ -27,21 +27,86 @@ Route::get('/', function () {
 | Todas las rutas dentro de este grupo necesitan un login antes de acceder
 |
 */
-Route::group(['middleware' => ['auth']], function()
+Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 {
 	Route::get('/home', function() {
-		return view('home');    
+		return view('admin/home');    
 	});
 
-	Route::get('auth/logout', 'Auth\AuthController@getLogout');
+	/*
+	|--------------------------------------------------------------------------
+	| Paginas con prefijo /admin/user
+	|--------------------------------------------------------------------------
+	|
+	*/
+	Route::group(['prefix' => '/user'], function()
+	{
+		// seccion administracion de usuarios
+		Route::get('/', 'AdminController@showUsers');
+	 
+	});
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| Paginas con prefijo /admin/contest
+	|--------------------------------------------------------------------------
+	|
+	*/
+	Route::group(['prefix' => '/contest'], function()
+	{
+		// seccion administracion de usuarios
+		Route::get('/', 'AdminController@showContests');
+	 
+	});	
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| Paginas con prefijo /admin/team
+	|--------------------------------------------------------------------------
+	|
+	*/
+	Route::group(['prefix' => '/team'], function()
+	{
+		// seccion administracion de usuarios
+		Route::get('/', 'AdminController@showTeams');
+	 
+	});	
+	
+	
+	/*
+	|--------------------------------------------------------------------------
+	| Paginas con prefijo /admin/team
+	|--------------------------------------------------------------------------
+	|
+	*/
+	Route::group(['prefix' => '/problem'], function()
+	{
+		// seccion administracion de usuarios
+		Route::get('/', 'AdminController@showProblems');
+	 
+	});	
+
 });
 
+	
+/*
+|--------------------------------------------------------------------------
+| Paginas con prefijo /auth
+|--------------------------------------------------------------------------
+|
+*/
+Route::group(['prefix' => '/auth'], function()
+{
+	Route::get('/logout', 'Auth\AuthController@getLogout');
 
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
+	// Authentication routes...
+	Route::get('/login', 'Auth\AuthController@getLogin');
+	Route::post('/login', 'Auth\AuthController@postLogin');
 
-
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+	// Registration routes...
+	Route::get('/register', 'Auth\AuthController@getRegister');
+	Route::post('/register', 'Auth\AuthController@postRegister');
+ 
+});	

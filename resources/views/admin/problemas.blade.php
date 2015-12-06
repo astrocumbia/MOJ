@@ -1,3 +1,5 @@
+@include('admin.includes.head')
+
     <!-- Main Container -->
     <main id="main-container">
         <!-- Stats -->
@@ -45,9 +47,9 @@
                             <tr>
                                 <td class="text-center">1</td>                                                                                           <td>Suma de números</td>
                                 <td class="text-center">A+B</td>
-                                <td class="text-center"><a>A+B.pdf</a></td>
-                                <td class="text-center"><a>suma.in</a></td>
-                                <td class="text-center"><a>suma.out</a></td>
+                                <td class="text-center"><a href="#" class="link-effect">A+B.pdf</a></td>
+                                <td class="text-center"><a class="link-effect" href="javascript:void(0)">suma.in</a></td>
+                                <td class="text-center"><a class="link-effect" href="javascript:void(0)">suma.out</a></td>
                                 <td class="text-center">Positr0nix</td>
                                 <td class="text-center">2 MB</td>
                                 <td class="text-center">2 S</td>
@@ -188,4 +190,6 @@
     </main>
     <!-- END Main Container -->
 
-  
+      
+
+@include('admin.includes.footer')
