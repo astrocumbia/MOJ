@@ -12,6 +12,8 @@
 <!-- END Page Container -->
 
 
+
+
 <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
 <script src="{{ asset('js/core/jquery.min.js') }}"></script>
 <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>

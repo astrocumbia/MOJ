@@ -34,20 +34,16 @@
         </ul>
         <div class="block-content tab-content">
             <div class="tab-pane fade fade-right active in" id="problemas-tab">
-                <h4 class="font-w300 push-15">Problemas</h4>
-                <p>Content slides in to the right..</p>
+                @include('contest.problemas')
             </div>
             <div class="tab-pane fade fade-right" id="envios-tab">
-                <h4 class="font-w300 push-15">Envios</h4>
-                <p>Content slides in to the right..</p>
+                @include('contest.envios')
             </div>
             <div class="tab-pane fade fade-right" id="clarificaciones-tab">
-                <h4 class="font-w300 push-15">clarificaciones</h4>
-                <p>Content slides in to the right..</p>
+                @include('contest.clarificaciones')
             </div>
             <div class="tab-pane fade fade-right" id="score-tab">
-                <h4 class="font-w300 push-15">Score</h4>
-                <p>Content slides in to the right..</p>
+                @include('contest.score')
             </div>
         </div>
     </div>
