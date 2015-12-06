@@ -72,7 +72,7 @@
 
 
 
-    <!-- Header -->
+  <!-- Header -->
     <header id="header-navbar" class="content-mini content-mini-full">
         <!-- Header Navigation Right -->
 
@@ -89,7 +89,7 @@
                         <img src="assets/img/avatars/avatar10.jpg" alt="Avatar">
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-right">
+                     <ul class="dropdown-menu dropdown-menu-right">
                         <li class="dropdown-header">Ajustes</li>
                         <li>
                             <a tabindex="-1" href="base_pages_login.html">
@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="base_pages_login.html">
+                            <a tabindex="-1" href="/auth/logout">
                                 <i class="si si-logout pull-right"></i>Salir
                             </a>
                         </li>
@@ -130,5 +130,3 @@
         <!-- END Header Navigation Left -->
     </header>
     <!-- END Header -->
-
-
