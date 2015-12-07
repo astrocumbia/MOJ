@@ -1,53 +1,30 @@
 @include('contest.includes.head')
 
+    <div class="col-lg-12">
+        <!-- Header BG Table -->
+        <div class="block">
+            <div class="block-content">
+                <table class="table table-striped table-borderless table-header-bg">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Alias</th>                                                                                       <th class="text-center">Problema</th>
+                        <th class="text-center">Color</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>                                                                                                                         <td>Suma de números</td>
+                        <td class="text-center">A+B</td>
+                        <td class="text-center"><a class="link-effect">A+B.pdf</a></td>
+                        <td class="text-center"><i class="fa fa-flag" style="font-size: 2em; color: #0A0;"></i></td>
+                    </tr>
 
-    <!-- Main Container -->
-    <main id="main-container">
-
-    <!-- Block Tabs Animated Slide Right -->
-    <div class="block">
-        <ul class="nav nav-tabs" data-toggle="tabs">
-            <li class="active">
-                <a href="#problemas-tab">
-                    <i class="fa fa-file-code-o"></i>
-                    Problemas
-                </a>
-            </li>
-            <li class="">
-                <a href="#envios-tab">
-                    <i class="fa fa-paper-plane-o"></i>
-                    Envios
-                </a>
-            </li>
-            <li class="">
-                <a href="#clarificaciones-tab">
-                    <i class="fa fa-weixin"></i>
-                    Clarificaciones
-                </a>
-            </li>
-            <li class="">
-                <a href="#score-tab">
-                    <i class="fa fa-trophy"></i>
-                    Scoreboard
-                </a>
-            </li>
-        </ul>
-        <div class="block-content tab-content">
-            <div class="tab-pane fade fade-right active in" id="problemas-tab">
-                @include('contest.problemas')
-            </div>
-            <div class="tab-pane fade fade-right" id="envios-tab">
-                @include('contest.envios')
-            </div>
-            <div class="tab-pane fade fade-right" id="clarificaciones-tab">
-                @include('contest.clarificaciones')
-            </div>
-            <div class="tab-pane fade fade-right" id="score-tab">
-                @include('contest.score')
+                    </tbody>
+                </table>
             </div>
         </div>
+        <!-- END Header BG Table -->
     </div>
-    <!-- END Block Tabs Animated Slide Right -->
 
     </main>
     <!-- END Main Container -->

@@ -50,7 +50,31 @@ class ContestController extends Controller
     {
         //
         return view('contest/home');
+        //return view('contest/envios');
     }
+
+
+    public function showEnvios()
+    {
+        return view('contest/envios');
+    }
+
+    public function showProblemas()
+    {
+        return view('contest/problemas');   
+    }
+
+    public function showClarificaciones()
+    {
+        return view('contest/clarificaciones');      
+    }
+
+
+    public function showScore()
+    {
+        return view('contest/score');   
+    }
+
 
     /**
      * Show the form for editing the specified resource.

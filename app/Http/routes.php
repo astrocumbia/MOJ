@@ -28,6 +28,15 @@ Route::group(['prefix' => '/contest'], function()
 {
 	// seccion administracion de usuarios
 	Route::get('/', 'ContestController@show');
+
+	//
+	Route::get('/problemas', 'ContestController@showProblemas');
+
+	Route::get('/envios', 'ContestController@showEnvios');
+
+	Route::get('/clarificaciones', 'ContestController@showClarificaciones');
+
+	Route::get('/score', 'ContestController@showScore');
  
 });
 
