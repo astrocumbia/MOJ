@@ -44,7 +44,7 @@
     <link rel="stylesheet" id="css-main" href="assets/css/oneui.css">
 
 </head>
-<body>
+<body onload="timer()">
 
 <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
 
@@ -110,11 +110,12 @@
 
 
         <ul class="col-md-11 nav-header pull-right">
-            <li class=" pull-left">
-                <h2 class="font-w700 text-primary">Segundo concurso de programación de la Mixteca</h2>
+
+            <li class=" col-md-7  pull-left">
+                <h3 class="font-w700 text-primary" align="center" >Segundo concurso de programación de la Mixteca</h3>
             </li>
 
-            <li class="pull-right">
+            <li class=" col-md-1 pull-right">
                 <div class="btn-group">
                     <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
                         <img src="assets/img/avatars/avatar10.jpg" alt="Avatar">
@@ -135,8 +136,8 @@
                     </ul>
                 </div>
             </li>
-            <li class="pull-right">
-                <h2 class="font-w700" style="padding: 0px 10px">3:34:23</h2>
+            <li class=" col-md-3 pull-right">
+                <h3 class="font-w700" style="padding: 0px 5px"><div id="timer" ></div></h2>
             </li>
 
         </ul>
@@ -292,11 +293,18 @@
 
 <!-- Page JS Code -->
 <script src="assets/js/pages/base_pages_dashboard.js"></script>
+<script src="assets/timer.js"></script>
 <script>
     $(function () {
         // Init page helpers (Slick Slider plugin)
         App.initHelpers('slick');
     });
 </script>
+
+<script>
+    var tiempo_BD =
+</script>
+
+
 </body>
 </html>
