@@ -13,14 +13,15 @@ class AddUserFields extends Migration
     public function up()
     {
         //
-	Schema::table('users', function ($table) {
-   		$table->string('username');
-        $table->boolean('activo')->default(true);
-        $table->string('rol');
-        $table->string('apellidom');
-		$table->string('apellidop');
-		
-	});
+    	Schema::table('users', function ($table) {
+       		$table->string('username');
+            $table->boolean('activo')->default(true);
+            $table->integer('rol')->default(3);
+            $table->string('apellidom');
+    		$table->string('apellidop');
+    	});
+
+
     }
 
     /**
@@ -30,6 +31,6 @@ class AddUserFields extends Migration
      */
     public function down()
     {
-        //
+
     }
 }
