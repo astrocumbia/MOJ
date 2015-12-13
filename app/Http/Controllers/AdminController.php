@@ -27,8 +27,8 @@ class AdminController extends Controller
 
     public function ShowContests()
     {
-
-        $data = Concurso::all();
+        $data = Concurso::orderBy('id', 'desc')->paginate(7);
+       // $data = Concurso::paginate(5);
         return view('admin/concursos',['concursos'=>$data]);   
     }
 
@@ -39,8 +39,8 @@ class AdminController extends Controller
         $data = $request->input();
         $contest = new Concurso( $data );
         $contest->save();
-        print_r( $contest );   
 
+        return redirect('admin/contest');
     }
 
     

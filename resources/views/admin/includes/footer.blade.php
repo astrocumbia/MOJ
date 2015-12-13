@@ -25,8 +25,6 @@
 
 
         <!-- Page JS Plugins -->
-        <script src="{{ asset('js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-        <script src="{{ asset('js/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js') }}"></script>
         <script src="{{ asset('js/plugins/select2/select2.full.min.js') }}"></script>
         <script src="{{ asset('js/plugins/masked-inputs/jquery.maskedinput.min.js') }}"></script>
         <script src="{{ asset('js/plugins/dropzonejs/dropzone.min.js') }}"></script>
@@ -34,6 +32,8 @@
         <script src="{{ asset('js/plugins/select2/select2.full.min.js') }}"></script>
 
 
+        <script src="{{ asset('js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+        <script src="{{ asset('js/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js') }}"></script>
 
         <!-- clases para la validacion de los formularios-->
         <script src="{{ asset('js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
@@ -45,12 +45,11 @@
         <script>
 
             $(function () {
-                App.initHelpers(['slick','select2']);
+                App.initHelpers(['slick','datepicker', 'colorpicker', 'select2', 'masked-inputs', 'tags-inputs']);
             });
 
-            $('#datetimepicker4').datetimepicker();
             
-
+            
         </script>
 
     </body>

@@ -79,7 +79,7 @@
             <li>
                 <div class="btn-group">
                     <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
-                        <img src="assets/img/avatars/avatar10.jpg" alt="{{ Auth::user()->name }}">
+                        <img src="{{ asset('img/avatars/user.png') }}" alt="{{ Auth::user()->name }}">
                         <span class="caret"></span>
 
                     </button>

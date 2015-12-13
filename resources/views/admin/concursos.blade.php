@@ -24,8 +24,8 @@
                             <tr>
                                 <th class="text-center" style="width: 80px;"><i class="si si-user"></i></th>
                                 <th>Nombre</th>
-                                <th style="width: 10%;">Descripcion</th>
-                                <th style="width: 15%;">Inicio</th>
+                                <th style="width: 25%;">Descripcion</th>
+                                <th style="width: 10%;">Inicio</th>
                                 <th style="width: 10%;">Cierre</th>
                                 <th style="width: 5%;">Estado</th>
                                 <th style="width: 10%;">Tipo</th>
@@ -37,19 +37,23 @@
                             @foreach ($concursos as $concurso)
                                 <tr>
                                     <td class="text-center">
-                                        <img class="img-avatar img-avatar48" src="assets/img/logoutm.jpg" alt="">
+                                        <img class="img-avatar img-avatar48" src="{{ asset('img/avatars/user.png') }}" />
                                     </td>
                                     <td class="font-w600">
                                         <a class="link-effect" href="/contest/">{{$concurso->nombre}}</a>
                                     </td>
                                     <td>{{$concurso->descripcion}}</td>
                                     <td>{{$concurso->fecha_inicio}} {{$concurso->hora_inicio}}</td>
-                                    <td>16:00 Hrs</td>
-                                    <td>3 Hrs</td>
+                                    <td>{{$concurso->fecha_fin}} {{$concurso->hora_fin}}</td>
                                     <td>
                                         <span class="label label-success">Activo</span>
                                     </td>
-                                    <td>Público</td>
+                                    @if ( $concurso->acceso == 1)
+                                        <td>Público</td>
+                                    @else
+                                        <td>Privado</td>
+                                    @endif
+                                    
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Edit Client"><i class="fa fa-pencil"></i></button>
@@ -64,6 +68,13 @@
                         </table>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        {!! $concursos->render() !!}
+                    </div>
+                </div>
+                
             </div>
 
         </div>
@@ -93,7 +104,9 @@
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <div class="form-material floating">
-                                        <input autofocus class="form-control" type="text" id="nombre" name="nombre" autofocus>
+                                        <input autofocus class="form-control" 
+                                                type="text" id="nombre" 
+                                                name="nombre" autofocus required>
                                         <label for="nombre">nombre</label>
                                     </div>
                                 </div>
@@ -101,21 +114,39 @@
                             <div class="form-group">
                                 <div class="col-xs-6">
                                     <label for="fecha">Fecha de inicio</label>
-                                    <input class="form-control" type="text" id="fecha_ini" name="fecha_ini"  placeholder="DD-MM-YYYY">
+                                    <input  class="js-datepicker form-control" 
+                                            id="fecha_inicio" 
+                                            name="fecha_inicio" 
+                                            data-date-format="yyyy-mm-dd" 
+                                            placeholder="yyyy-mm-dd" 
+                                            >
+                                    
                                 </div>
                                 <div class="col-xs-6">
                                     <label for="fecha">Hora de inicio</label>
-                                    <input class="form-control" type="text" id="hora_ini" name="hora_ini" placeholder="HH:MM">
+                                    <input class="form-control" 
+                                            type="text" id="hora_ini" 
+                                            name="hora_inicio" placeholder="HH:MM"
+                                            required >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-6">
                                     <label for="fecha">Fecha de cierre</label>
-                                    <input class="form-control" type="text" id="fecha_fin" name="fecha_fin"  placeholder="DD-MM-YYYY">
+                                    <input  class="js-datepicker form-control" 
+                                            id="fecha_fin" 
+                                            name="fecha_fin" 
+                                            data-date-format="yyyy-mm-dd" 
+                                            placeholder="yyyy-mm-dd" 
+                                            required
+                                            >
                                 </div>
                                 <div class="col-xs-6">
                                     <label for="fecha">Hora de cierre</label>
-                                    <input class="form-control" type="text" id="hora_fin" name="hora_fin" placeholder="HH:MM">
+                                    <input class="form-control" 
+                                            type="text" id="hora_fin" 
+                                            name="hora_fin" placeholder="HH:MM"
+                                            required>
                                 </div>
                             </div>
 
@@ -147,8 +178,5 @@
     </div>
     <!-- END Fade In Modal -->
 
-<!-- END Page Container -->
-<script type="text/javascript">
-    $('#datetimepicker4').datetimepicker();
-</script>
+
 @include('admin.includes.footer')
