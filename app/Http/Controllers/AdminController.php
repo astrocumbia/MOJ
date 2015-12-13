@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+//Modelos
+use App\User;
+
 class AdminController extends Controller
 {
     /**
@@ -29,7 +32,8 @@ class AdminController extends Controller
     
     public function ShowUsers()
     {
-        return view('admin/usuarios');   
+        $usuarios = User::all();
+        return view('admin/usuarios', ['usuarios' => $usuarios]);   
     }
 
     public function ShowTeams()
