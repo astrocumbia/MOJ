@@ -9,13 +9,6 @@
 
 
 
-
-
-
-
-
-
-
         <!-- Page Content -->
         <div class="content">
 
@@ -45,7 +38,8 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td class="text-center">1</td>                                                                                           <td>Suma de números</td>
+                                <td class="text-center">1</td>
+                                <td>Suma de números</td>
                                 <td class="text-center">A+B</td>
                                 <td class="text-center"><a href="#" class="link-effect">A+B.pdf</a></td>
                                 <td class="text-center"><a class="link-effect" href="javascript:void(0)">suma.in</a></td>

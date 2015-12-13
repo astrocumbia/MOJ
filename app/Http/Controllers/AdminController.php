@@ -91,8 +91,6 @@ class AdminController extends Controller
         return view('admin/equipo');   
     }
 
-    public function showProblems(){
-        return view('admin/problemas');      
-    }
+
 
 }

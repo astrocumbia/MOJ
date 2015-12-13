@@ -116,7 +116,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	Route::group(['prefix' => '/problem'], function()
 	{
 		// seccion administracion de usuarios
-		Route::get('/', 'AdminController@showProblems');
+		Route::get('/', 'ProblemController@showProblems');
 	 
 	});	
 

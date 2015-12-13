@@ -19,6 +19,11 @@ class ProblemController extends Controller
         //
     }
 
+    public function showProblems(){
+        return view('admin/problemas');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
