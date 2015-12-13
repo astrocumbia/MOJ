@@ -50,11 +50,21 @@ class AdminController extends Controller
         return view('admin/usuarios', ['usuarios' => $usuarios]);   
     }
 
-    public function addUsers()
+    public function addUser( Request $request )
     {
-        $usuarios = User::all();
-        return view('admin/usuarios', ['usuarios' => $usuarios]);   
+        $db_user = new User( $request->input() );
+        $db_user->password = bcrypt( $db_user->password );
+        $db_user->save();
+        return redirect('admin/user');
     }
+
+    public function  loadUser( Request $request ){
+
+        $usuario = User::find( $request->input('id') );
+        return $usuario;
+    }
+
+
 
     public function ShowTeams()
     {
