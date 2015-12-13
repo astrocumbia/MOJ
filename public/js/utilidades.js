@@ -39,3 +39,28 @@ function clearForm( ){
     $("#addUserForm").trigger('reset');
 }
 
+function loadContest( parametros , url ){
+    _Post( parametros , url , fill_contest_form );
+}
+
+function fill_contest_form( response ) {
+    $("#ide").val( response.id );
+    $("#nombree").val( response.nombre );
+    $("#descripcione").val( response.descripcion );
+    $("#fecha_inie").val( response.fecha_inicio );
+    $("#hora_inie").val( response.hora_inicio );
+    $("#fecha_fine").val( response.fecha_fin );
+    $("#hora_fine").val( response.hora_fin );
+}
+
+
+function loadTeam( parametros , url ){
+    _Post( parametros , url , fill_team_form );
+}
+
+function fill_team_form( response ) {
+    $("#ide").val( response.id );
+    $("#nombree").val( response.nombre );
+    $("#universidade").val( response.universidad );
+    $("#categoriae").val( response.categoria );
+}

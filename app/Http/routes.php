@@ -84,11 +84,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	*/
 	Route::group(['prefix' => '/contest'], function()
 	{
-		// seccion administracion de usuarios
+		// seccion administracion de concursos
 		Route::get('/', 'AdminController@showContests');
-
 		Route::post('/save', 'AdminController@saveContests');
-	 
+		Route::post('/load', 'AdminController@loadContest');
+		Route::post('/edit', 'AdminController@editContest');
+		Route::get('/del/{id}', 'AdminController@deleteContest');
 	});	
 
 
@@ -100,9 +101,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	*/
 	Route::group(['prefix' => '/team'], function()
 	{
-		// seccion administracion de usuarios
+		// seccion administracion de equipos
 		Route::get('/', 'AdminController@showTeams');
-	 
+		Route::post('/add', 'AdminController@addTeams');
+		Route::post('/load', 'AdminController@loadTeams');
+	 	Route::post('/edit', 'AdminController@editTeams');
+	 	Route::get('/del/{id}', 'AdminController@deleteTeam');
+
 	});	
 	
 	

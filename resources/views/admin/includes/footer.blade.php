@@ -40,8 +40,6 @@
         <script src="{{ asset('js/registro.js') }}"></script>
         <script src="{{ asset('js/utilidades.js') }}"></script>
 
-
-
         <script>
 
             $(function () {
