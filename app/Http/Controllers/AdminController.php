@@ -46,7 +46,8 @@ class AdminController extends Controller
     
     public function ShowUsers()
     {
-        $usuarios = User::all();
+        $usuarios = User::orderBy('id' , 'desc' )->paginate( 5 );
+
         return view('admin/usuarios', ['usuarios' => $usuarios]);   
     }
 
@@ -57,6 +58,22 @@ class AdminController extends Controller
         $db_user->save();
         return redirect('admin/user');
     }
+
+    public function editUser( Request $request )
+    {
+        User::where( 'id' , $request->input('id') )
+                ->update([
+                    'name' => $request->input('name'),
+                    'apellidop' => $request->input('apellidop'),
+                    'apellidom' => $request->input('apellidom'),
+                    'username' => $request->input('username'),
+                    'rol' => $request->input('rol'),
+                    'email' => $request->input('email')
+                ]);
+
+        return redirect('admin/user');
+    }
+
 
     public function  loadUser( Request $request ){
 

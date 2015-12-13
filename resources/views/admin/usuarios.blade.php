@@ -14,7 +14,7 @@
                     <h2>Usuarios</h2>
                 </div>
                 <div class="col-md-6">
-                    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-fadein" type="button"><i class="fa fa-plus"></i> Crear Usuario</button>
+                    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#addUserModal" type="button"><i class="fa fa-plus"></i> Crear Usuario</button>
                 </div>
             </div>
 
@@ -66,9 +66,9 @@
                                     </td>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar usuario" onclick="edituser( {'_token':'{{csrf_token()}}',
+                                            <button class="btn btn-xs btn-default" type="button" data-toggle="modal" data-target="#editUserModal" title="Editar usuario" onclick="loadUser( {'_token':'{{csrf_token()}}',
                                                                                                                                                                     'id' : '{{ $usuario->id }}'
-                                                                                                                                                                } , '{{ url('admin/user/load') }}' )"><i class="fa fa-pencil"></i></button>
+                                                                                                                                                                } , '{{ url('admin/user/load') }}' )"  ><i class="fa fa-pencil"></i></button>
 
                                             <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Eliminar usuario"><i class="fa fa-times"></i></button>
                                         </div>
@@ -93,8 +93,17 @@
         <!-- END Page Content -->
 
 
-        <!-- Fade In Modal -->
-        <div class="modal fade" id="modal-fadein" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                {!! $usuarios->render() !!}
+            </div>
+        </div>
+
+
+
+
+        <!-- Modal para agregar usuarios -->
+        <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="block block-themed block-transparent remove-margin-b">
@@ -110,9 +119,8 @@
 
                         <div class="block-content">
 
-                            <form class="js-validation-register form-horizontal push-5-t" action= "/admin/user/add" method="post" >
+                            <form class="js-validation-register form-horizontal push-5-t" action="/admin/user/add" method="post" id="addUserForm" >
                                 {!! csrf_field() !!}
-
                                 <div class="form-group">
                                     <div class="form-material form-material-info">
                                         <label class="col-xs-12" for="nombre">Nombre</label>
@@ -168,7 +176,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-material form-material-info">
+                                    <div class="form-material form-material-info" id = "pass">
                                         <label class="col-xs-12" for="register1-password">Contraseña</label>
                                         <div class="col-xs-12">
                                             <input class="form-control" type="password" id="password" name="password" placeholder="Ingresa tu contraseña">
@@ -176,26 +184,135 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-material form-material-info">
+                                    <div class="form-material form-material-info" id = "pass2" >
                                         <label class="col-xs-12" for="password2">confirma tu contraseña</label>
                                         <div class="col-xs-12">
                                             <input class="form-control" type="password" id="password2" name="password2" placeholder="Confirma tu contraseña...">
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <button class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-plus push-5-r"></i> Registrar</button>
+                                    <div class="form-material form-material-info hidden">
+                                        <div class="col-xs-12">
+                                            <input class="form-control" type="text" id="id" name="id">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <button class="btn btn-sm btn-info pull-right" onclick="clearForm()"><i class="fa fa-wrench push-5-r"></i>Limpiar</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-sm btn-success pull-right" type="submit" ><i class="fa fa-check push-5-r"></i>Agregar</button>
                                     </div>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- END Fade In Modal -->
+        <!-- Fin del modal para agregar -->
+
+
+
+        <!-- Modal para editar usuarios -->
+        <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="block block-themed block-transparent remove-margin-b">
+
+                        <div class="block-header bg-primary-dark">
+                            <ul class="block-options">
+                                <li>
+                                    <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Editar usuario</h3>
+                        </div>
+
+                        <div class="block-content">
+
+                            <form class="js-validation-register form-horizontal push-5-t" action="/admin/user/edit" method="post" id="editUserForm" >
+                                {!! csrf_field() !!}
+                                <div class="form-group">
+                                    <div class="form-material form-material-info">
+                                        <label class="col-xs-12" for="nombre">Nombre</label>
+                                        <div class="col-xs-12">
+                                            <input class="form-control" type="text" id="nombree" name="name" placeholder="Ingresa tu nombre...">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-material form-material-info">
+                                        <label class="col-xs-12" for="apellidop">Apellido paterno</label>
+                                        <div class="col-xs-12">
+                                            <input class="form-control" type="text" id="apellidope" name="apellidop" placeholder="Ingresa tu apellido paterno...">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="apellidom">Apellido materno</label>
+                                    <div class="col-xs-12">
+                                        <input class="form-control" type="text" id="apellidome" name="apellidom" placeholder="Ingresa tu apellido materno...">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-material form-material-info">
+                                        <label class="col-xs-12" for="username">Usuario</label>
+                                        <div class="col-xs-12">
+                                            <input class="form-control" type="text" id="usernamee" name="username" placeholder="Ingresa tu nombre de usuario...">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="contact1-subject">Rol</label>
+                                    <div class="col-xs-12">
+                                        <select class="form-control" id="role" name="rol" size="1">
+                                            <option value="1">Administrador</option>
+                                            <option value="2">Juez</option>
+                                            <option value="3">Concursante   </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-material form-material-info">
+                                        <label class="col-xs-12" for="email">Correo electrónico</label>
+                                        <div class="col-xs-12">
+                                            <input class="form-control" type="email" id="emaile" name="email" placeholder="Ingresa tu correo...">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-material form-material-info hidden">
+                                        <div class="col-xs-12">
+                                            <input class="form-control" type="text" id="ide" name="id">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <button class="btn btn-sm btn-info pull-right" onclick="clearForm()"><i class="fa fa-wrench push-5-r"></i>Limpiar</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-sm btn-success pull-right" type="submit" ><i class="fa fa-pencil push-5-r"></i>Editar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin del modal para editar usuarios -->
 
     </main>
     <!-- END Main Container -->

@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 		Route::get('/', 'AdminController@showUsers');
 		Route::post('/add', 'AdminController@addUser');
 		Route::post('/load', 'AdminController@loadUser');
+		Route::post('/edit', 'AdminController@editUser');
 
 	});
 
