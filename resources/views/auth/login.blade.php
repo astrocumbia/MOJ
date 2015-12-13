@@ -10,7 +10,7 @@
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                 <div class="push-30-t push-50 animated fadeIn">
                     <div class="text-center">
-                        <i class="fa fa-2x fa-circle-o-notch text-primary"></i>
+                        <h3>Mictlán Online Judge</h3>
                         <p class="text-muted push-15-t">Inicio de sesi&oacute;n</p>
                     </div>
                     <form class="js-validation-login form-horizontal push-30-t" action="/auth/login" method="post">
@@ -49,6 +49,11 @@
                             </div>
                         </div>
                     </form>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            &oacute; <br/> <a href="/auth/register">Registrarse</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

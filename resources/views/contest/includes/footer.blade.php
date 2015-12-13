@@ -34,12 +34,10 @@
 
 <!-- Page JS Code -->
 <script src="{{ asset('js/pages/base_pages_dashboard.js') }}"></script>
+<script src="{{ asset('js/timer.js') }}"></script>
 
 <script>
-    $(function () {
-        // Init page helpers (Slick Slider plugin)
-        App.initHelpers('slick');
-    });
+
 </script>
 </body>
 </html>

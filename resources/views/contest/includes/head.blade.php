@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body onload="timer( new Date('2015/12/12 17:01:00'), new Date('2015/12/12 20:23:00') );">
 
 <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
 
@@ -104,8 +104,9 @@
                     </ul>
                 </div>
             </li>
-            <li class="pull-right">
-                <h2 class="font-w700" style="padding: 0px 10px">3:34:23</h2>
+            
+            <li class=" col-md-3 pull-right">
+                <span class="font-w700" style="padding: 0px 0px;font-size:22px;"><div id="timer" ></div></span>
             </li>
 
         </ul>
