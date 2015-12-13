@@ -4,8 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
+//Modelos
+use App\User;
+use App\Concurso;
+use App\Problem;
+
+
 
 class ProblemController extends Controller
 {
@@ -20,26 +28,59 @@ class ProblemController extends Controller
     }
 
     public function showProblems(){
-        return view('admin/problemas');
+
+        $problemas = Problem::orderBy('id' , 'desc' )->paginate( 5 );
+        return view('admin/problemas' , ['problemas' => $problemas] );
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function showDescription( Request $request ){
+        return '/files/'.$request->input('name');
+    }
+
+    public function showDescriptionget( $name ){
+
+
+        if( Auth::check() )
+            return '/files/'.$name;
+        else
+            return null;
+    }
+
+    public function downloadFile( Request $request ){
+        return '/files/'.$request->input('name');
+        //return response()->download('files/'.$request->input('name'));
+    }
+
+
+    public function addProblems( Request $request )
     {
-        //
+        $pdf        = Input::file('pdf');
+        $entrada    = Input::file('entrada');
+        $salida     = Input::file('salida');
+
+        $random = rand(1,100000);
+
+        $pdf->move('files', $random.$pdf->getClientOriginalName());
+        $entrada->move('files', $random.$entrada->getClientOriginalName());
+        $salida->move('files', $random.$salida->getClientOriginalName());
+
+        $problema = new Problem( array(
+            'nombre'    => $request->input('nombre'),
+            'memoria'   => $request->input('memoria'),
+            'tiempo'    => $request->input('tiempo'),
+            'pdf'       => $random.$pdf->getClientOriginalName(),
+            'in'        => $random.$entrada->getClientOriginalName(),
+            'out'       => $random.$salida->getClientOriginalName(),
+            'categoria' => $request->input('categoria'),
+        ));
+
+        $problema->save();
+
+        return redirect('admin/problem');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //

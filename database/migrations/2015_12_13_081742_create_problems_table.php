@@ -15,10 +15,11 @@ class CreateProblemsTable extends Migration
         Schema::create('problemas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 100 );
-            $table->longText('pdf');
+            $table->string('pdf', 50 );
             $table->integer('usuario_creacion');
-            $table->longText('in');
-            $table->longText('out');
+            $table->integer('categoria');
+            $table->string('in', 50 );
+            $table->string('out', 100 );
             $table->integer('memoria');
             $table->integer('tiempo');
             $table->dateTime('creacion');
@@ -33,6 +34,6 @@ class CreateProblemsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('problems');
+        Schema::drop('problemas');
     }
 }

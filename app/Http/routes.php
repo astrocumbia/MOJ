@@ -41,6 +41,7 @@ Route::group(['prefix' => '/contest'], function()
 });
 
 
+Route::get('/files/{name}','ProblemController@showDescriptionget');
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::group(['prefix' => '/contest'], function()
 | Todas las rutas dentro de este grupo necesitan un login antes de acceder
 |
 */
+
+
 Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 {
 	Route::get('/home', function() {
@@ -113,7 +116,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	
 	/*
 	|--------------------------------------------------------------------------
-	| Paginas con prefijo /admin/team
+	| Paginas con prefijo /admin/problem
 	|--------------------------------------------------------------------------
 	|
 	*/
@@ -121,6 +124,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	{
 		// seccion administracion de usuarios
 		Route::get('/', 'ProblemController@showProblems');
+		Route::post('/showDescription/', 'ProblemController@showDescription');
+		Route::post('/downloadFile/', 'ProblemController@downloadFile');
+		Route::post('/add', 'ProblemController@addProblems');
 	 
 	});	
 
