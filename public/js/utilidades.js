@@ -22,6 +22,12 @@ function loadUser( parametros , url ){
     _Post( parametros , url , fill_user_form );
 }
 
+function deleteUser( parametros , url ){
+    _Post( parametros , url , null );
+    location.reload();
+
+}
+
 
 function fill_user_form( response ) {
 

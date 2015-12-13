@@ -43,11 +43,10 @@ class AdminController extends Controller
         return redirect('admin/contest');
     }
 
-    
+
     public function ShowUsers()
     {
         $usuarios = User::orderBy('id' , 'desc' )->paginate( 5 );
-
         return view('admin/usuarios', ['usuarios' => $usuarios]);   
     }
 
@@ -70,13 +69,17 @@ class AdminController extends Controller
                     'rol' => $request->input('rol'),
                     'email' => $request->input('email')
                 ]);
-
         return redirect('admin/user');
     }
 
+    public function deleteUser( Request $request )
+    {
+        $user = User::find( $request->input('id') );
+        $user->delete();
+        return redirect('admin/user');
+    }
 
     public function  loadUser( Request $request ){
-
         $usuario = User::find( $request->input('id') );
         return $usuario;
     }

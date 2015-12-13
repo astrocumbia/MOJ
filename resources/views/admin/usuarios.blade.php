@@ -40,40 +40,44 @@
 
 
                             @foreach( $usuarios as $usuario )
-                                <tr>
-                                    <td class="text-center">{{ $usuario->id }}</td>
-                                    <td class="text-center">{{ $usuario->username }}</td>
-                                    <td>{{ $usuario->name }} {{ $usuario->apellidop }} {{ $usuario->apellidom }}</td>
-                                    <td>Universidad Tecnológica de la Mixteca</td>
-                                    <td class="text-center">{{ $usuario->email }}</td>
-                                    <td class="text-center">StringTokenizer</td>
-                                    <td class="text-center">
+                                @if( $usuario->activo == 1 )
+                                    <tr>
+                                        <td class="text-center">{{ $usuario->id }}</td>
+                                        <td class="text-center">{{ $usuario->username }}</td>
+                                        <td>{{ $usuario->name }} {{ $usuario->apellidop }} {{ $usuario->apellidom }}</td>
+                                        <td>Universidad Tecnológica de la Mixteca</td>
+                                        <td class="text-center">{{ $usuario->email }}</td>
+                                        <td class="text-center">StringTokenizer</td>
+                                        <td class="text-center">
 
-                                        @if( $usuario->rol == 1 )
-                                            <span class="label label-success">
-                                                Administrador
-                                            </span>
-                                            @elseif( $usuario->rol == 2 )
-                                            <span class="label label-info">
-                                                Juez
-                                            </span>
-                                            @else
-                                            <span class="label label-info">
-                                                usuario
-                                            </span>
-                                        @endif
+                                            @if( $usuario->rol == 1 )
+                                                <span class="label label-success">
+                                                    Administrador
+                                                </span>
+                                                @elseif( $usuario->rol == 2 )
+                                                <span class="label label-info">
+                                                    Juez
+                                                </span>
+                                                @else
+                                                <span class="label label-info">
+                                                    usuario
+                                                </span>
+                                            @endif
 
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="btn-group">
-                                            <button class="btn btn-xs btn-default" type="button" data-toggle="modal" data-target="#editUserModal" title="Editar usuario" onclick="loadUser( {'_token':'{{csrf_token()}}',
-                                                                                                                                                                    'id' : '{{ $usuario->id }}'
-                                                                                                                                                                } , '{{ url('admin/user/load') }}' )"  ><i class="fa fa-pencil"></i></button>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <button class="btn btn-xs btn-default" type="button" data-toggle="modal" data-target="#editUserModal" title="Editar usuario" onclick="loadUser( {'_token':'{{csrf_token()}}',
+                                                                                                                                                                        'id' : '{{ $usuario->id }}'
+                                                                                                                                                                    } , '{{ url('admin/user/load') }}' )"  ><i class="fa fa-pencil"></i></button>
 
-                                            <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Eliminar usuario"><i class="fa fa-times"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                                <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Eliminar usuario" onclick="deleteUser( {'_token':'{{csrf_token()}}',
+                                                                                                                                                                        'id' : '{{ $usuario->id }}'
+                                                                                                                                                                        } , '{{ url('admin/user/delete') }}' )"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
 
 
