@@ -72,6 +72,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 		Route::post('/add', 'AdminController@addUser');
 		Route::post('/load', 'AdminController@loadUser');
 		Route::post('/edit', 'AdminController@editUser');
+		Route::post('/delete', 'AdminController@deleteUser');
 
 	});
 
@@ -120,7 +121,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	Route::group(['prefix' => '/problem'], function()
 	{
 		// seccion administracion de usuarios
-		Route::get('/', 'AdminController@showProblems');
+		Route::get('/', 'ProblemController@showProblems');
 	 
 	});	
 
