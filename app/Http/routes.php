@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	});
 
 
-	Route::post('/adduser', 'AdminController@showUsers');
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -69,7 +69,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	{
 		// seccion administracion de usuarios
 		Route::get('/', 'AdminController@showUsers');
-	 
+		Route::post('/add', 'AdminController@addUser');
+		Route::post('/load', 'AdminController@loadUser');
 
 	});
 

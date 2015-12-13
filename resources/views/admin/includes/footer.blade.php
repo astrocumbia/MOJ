@@ -23,8 +23,6 @@
         <script src="{{ asset('js/plugins/slick/slick.min.js') }}"></script>
         <script src="{{ asset('js/plugins/chartjs/Chart.min.js') }}"></script>
 
-        <!-- Page JS Code -->
-        <script src="{{ asset('js/pages/base_pages_dashboard.js') }}"></script>
 
         <!-- Page JS Plugins -->
         <script src="{{ asset('js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
@@ -33,11 +31,18 @@
         <script src="{{ asset('js/plugins/masked-inputs/jquery.maskedinput.min.js') }}"></script>
         <script src="{{ asset('js/plugins/dropzonejs/dropzone.min.js') }}"></script>
         <script src="{{ asset('js/plugins/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
-        <script src="{{ assets('js/plugins/select2/select2.full.min.js') }}"></script>
+        <script src="{{ asset('js/plugins/select2/select2.full.min.js') }}"></script>
+
+
+        <!-- clases para la validacion de los formularios-->
+        <script src="{{ asset('js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+        <script src="{{ asset('js/registro.js') }}"></script>
+        <script src="{{ asset('js/utilidades.js') }}"></script>
+
 
         <script>
             $(function () {
-                App.initHelpers(['slick',  'select2']);
+                App.initHelpers(['slick','select2']);
             });
         </script>
 
