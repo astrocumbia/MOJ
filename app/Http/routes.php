@@ -84,6 +84,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	{
 		// seccion administracion de usuarios
 		Route::get('/', 'AdminController@showContests');
+
+		Route::post('/save', 'AdminController@saveContests');
 	 
 	});	
 

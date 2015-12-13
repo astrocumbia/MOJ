@@ -18,8 +18,8 @@ class CreateConcursosTable extends Migration
             $table->integer('id_user');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
-            $table->date('hora_inicio');
-            $table->date('hora_fin');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
             $table->string('foto_perfil')->nullable();
             $table->string('descripcion')->nullable();
             $table->integer('nivel');

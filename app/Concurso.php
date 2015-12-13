@@ -19,6 +19,12 @@ class Concurso extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password','apellidom','apellidop','username'];
+    protected $fillable = ['id', 
+    			'nombre', 
+    			'fecha_inicio',
+    			'hora_inicio',
+    			'fecha_fin',
+    			'hora_fin',
+    			'descripcion'];
 
 }

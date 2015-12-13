@@ -36,8 +36,6 @@
 <script src="{{ asset('js/pages/base_pages_dashboard.js') }}"></script>
 <script src="{{ asset('js/timer.js') }}"></script>
 
-<script>
 
-</script>
 </body>
 </html>

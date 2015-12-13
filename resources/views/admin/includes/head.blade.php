@@ -17,6 +17,9 @@
     <link href="{{ asset('js/plugins/select2/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('js/plugins/select2/select2-bootstrap.css') }}" rel="stylesheet">
 
+    <script src="{{ asset('js/core/jquery.min.js') }}"></script>
+    
+
 
 </head>
 
