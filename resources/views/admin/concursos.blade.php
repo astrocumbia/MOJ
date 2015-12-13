@@ -96,17 +96,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-xs-4">
+                                <div class="col-xs-6">
                                     <label for="fecha">Fecha de inicio</label>
                                     <input class="form-control" type="text" id="fecha" name="fecha"  placeholder="DD-MM-YYYY">
                                 </div>
-                                <div class="col-xs-4">
+                                <div class="col-xs-6">
                                     <label for="fecha">Hora de inicio</label>
                                     <input class="form-control" type="text" id="hora" name="hora" placeholder="HH:MM">
-                                </div>
-                                <div class="col-xs-4">
-                                    <label for="fecha">Duración</label>
-                                    <input class="form-control" type="text" id="duracion" name="duracion" placeholder="HH:MM">
                                 </div>
                             </div>
 

@@ -26,11 +26,18 @@ class AdminController extends Controller
 
     public function ShowContests()
     {
+
         return view('admin/concursos');   
     }
 
     
     public function ShowUsers()
+    {
+        $usuarios = User::all();
+        return view('admin/usuarios', ['usuarios' => $usuarios]);   
+    }
+
+    public function addUsers()
     {
         $usuarios = User::all();
         return view('admin/usuarios', ['usuarios' => $usuarios]);   

@@ -27,7 +27,7 @@ Route::get('/', function () {
 Route::group(['prefix' => '/contest'], function()
 {
 	// seccion administracion de usuarios
-	Route::get('/', 'ContestController@show');
+	Route::get('/', 'ContestController@showProblemas');
 
 	//
 	Route::get('/problemas', 'ContestController@showProblemas');
@@ -57,6 +57,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 	});
 
 
+	Route::post('/adduser', 'AdminController@showUsers');
 
 	/*
 	|--------------------------------------------------------------------------
@@ -69,6 +70,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 		// seccion administracion de usuarios
 		Route::get('/', 'AdminController@showUsers');
 	 
+
 	});
 
 

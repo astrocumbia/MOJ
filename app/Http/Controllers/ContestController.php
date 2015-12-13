@@ -46,13 +46,6 @@ class ContestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
-    {
-        //
-        return view('contest/home');
-        //return view('contest/envios');
-    }
-
 
     public function showEnvios()
     {
