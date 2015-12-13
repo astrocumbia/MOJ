@@ -89,7 +89,8 @@ class AdminController extends Controller
     public function ShowUsers()
     {
         $usuarios = User::orderBy('id' , 'desc' )->paginate( 5 );
-        return view('admin/usuarios', ['usuarios' => $usuarios]);   
+        $teams    = Team::all();
+        return view('admin/usuarios', ['usuarios' => $usuarios, "teams" => $teams]);   
     }
 
     public function addUser( Request $request )
@@ -105,6 +106,7 @@ class AdminController extends Controller
         User::where( 'id' , $request->input('id') )
                 ->update([
                     'name' => $request->input('name'),
+                    'id_team' => $request->input('id_team'),
                     'apellidop' => $request->input('apellidop'),
                     'apellidom' => $request->input('apellidom'),
                     'username' => $request->input('username'),

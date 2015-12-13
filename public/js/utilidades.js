@@ -32,6 +32,7 @@ function deleteUser( parametros , url ){
 function fill_user_form( response ) {
 
     $("#ide").val( response.id );
+    $("#id_team").val( response.id_team );
     $("#nombree").val( response.name );
     $("#apellidope").val( response.apellidop );
     $("#apellidome").val( response.apellidom );

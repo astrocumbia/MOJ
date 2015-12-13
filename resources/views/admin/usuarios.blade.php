@@ -47,8 +47,15 @@
                                         <td>{{ $usuario->name }} {{ $usuario->apellidop }} {{ $usuario->apellidom }}</td>
                                         <td>Universidad Tecnológica de la Mixteca</td>
                                         <td class="text-center">{{ $usuario->email }}</td>
-                                        <td class="text-center">StringTokenizer</td>
-                                        <td class="text-center">
+                                        <td class="text-center"> 
+                                        
+                                        @if( $usuario->id_team == 0 )
+                                            Sin asignar
+                                        @else
+                                            {{ $usuario->team->nombre }}
+                                        @endif
+                                        </td>
+                                        <td class="text-center"> 
 
                                             @if( $usuario->rol == 1 )
                                                 <span class="label label-success">
@@ -282,6 +289,18 @@
                                             <option value="1">Administrador</option>
                                             <option value="2">Juez</option>
                                             <option value="3">Concursante   </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="contact1-subject">Asignar Equipo</label>
+                                    <div class="col-xs-12">
+                                        <select class="form-control" id="id_team" name="id_team" size="1">
+                                                <option value="0">Sin asignar</option>
+                                            @foreach ($teams as $team)
+                                                <option value="{{$team->id}}">{{$team->nombre}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

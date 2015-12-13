@@ -58,7 +58,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 
 
 
-
 	/*
 	|--------------------------------------------------------------------------
 	| Paginas con prefijo /admin/user

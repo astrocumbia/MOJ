@@ -18,4 +18,9 @@ class Team extends Model
     			'nombre', 
     			'universidad',
     			'categoria'];
+
+    public function integrantes()
+    {
+        return $this->hasMany('App\User', 'id_team', 'id');
+    }
 }
