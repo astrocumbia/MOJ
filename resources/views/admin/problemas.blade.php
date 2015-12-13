@@ -13,8 +13,11 @@
         <div class="content">
 
             <div class="row" style="padding: 0px 15px 20px 0px">
-                <div class="col-md-12">
-                    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-fadein" type="button"><i class="fa fa-plus"></i> Crear Problema</button>
+                <div class="col-md-6">
+                    <h2>Problemas</h2>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#addProblemModal" type="button"><i class="fa fa-plus"></i> Crear Problema</button>
                 </div>
             </div>
 
@@ -26,9 +29,11 @@
                         <table class="table table-striped table-borderless table-header-bg">
                             <thead>
                             <tr>
-                                <th class="text-center" style="width: 50px;">id</th>                                                                     <th class="text-center">Nombre</th>
-                                <th class="text-center">Alias</th>                                                                                       <th class="text-center">Problema</th>
-                                <th class="text-center">Entrada</th>                                                                                     <th class="text-center">Salida</th>
+                                <th class="text-center" style="width: 50px;">id</th>
+                                <th class="text-center">Nombre</th>
+                                <th class="text-center">Problema</th>
+                                <th class="text-center">Entrada</th>
+                                <th class="text-center">Salida</th>
                                 <th class="text-center">Propietario</th>
                                 <th class="text-center">Memoria</th>
                                 <th class="text-center">tiempo</th>
@@ -37,17 +42,26 @@
                             </tr>
                             </thead>
                             <tbody>
+
+
+                            @foreach( $problemas as $problema )
+
                             <tr>
-                                <td class="text-center">1</td>
-                                <td>Suma de números</td>
-                                <td class="text-center">A+B</td>
-                                <td class="text-center"><a href="#" class="link-effect">A+B.pdf</a></td>
-                                <td class="text-center"><a class="link-effect" href="javascript:void(0)">suma.in</a></td>
-                                <td class="text-center"><a class="link-effect" href="javascript:void(0)">suma.out</a></td>
+                                <td class="text-center">{{ $problema->id }}</td>
+                                <td>{{ $problema->nombre }}</td>
+                                <td class="text-center"><a onclick="showFile( { 'name' : '{{ $problema->pdf }}' , '_token':'{{csrf_token()}}'} , '{{ url('admin/problem/showDescription') }}' )" class="link-effect">Descripcion.pdf</a></td>
+                                <td class="text-center"><a class="link-effect" onclick="downloadFile( { 'name' : '{{ $problema->in }}' , '_token':'{{csrf_token()}}'}  , '{{ url('admin/problem/downloadFile') }}')">Entrada</a></td>
+                                <td class="text-center"><a class="link-effect" onclick="downloadFile( { 'name' : '{{ $problema->out }}' , '_token':'{{csrf_token()}}'} , '{{ url('admin/problem/downloadFile') }}')">Salida</a></td>
                                 <td class="text-center">Positr0nix</td>
-                                <td class="text-center">2 MB</td>
-                                <td class="text-center">2 S</td>
-                                <td class="text-center"><span class="label label-primary">Senior</span></td>
+                                <td class="text-center">{{$problema->memoria}} MB</td>
+                                <td class="text-center">{{$problema->tiempo}} S</td>
+                                <td class="text-center">
+                                    @if( $problema->categoria == 1 )
+                                        <span class="label label-primary">Senior</span>
+                                    @else
+                                        <span class="label label-success">Junior</span>
+                                    @endif
+                                </td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar usuario"><i class="fa fa-pencil"></i></button>
@@ -56,7 +70,7 @@
                                 </td>
                             </tr>
 
-
+                            @endforeach
 
 
 
@@ -75,7 +89,7 @@
 
 
         <!-- Fade In Modal -->
-        <div class="modal fade" id="modal-fadein" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="addProblemModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="block block-themed block-transparent remove-margin-b">
@@ -91,18 +105,14 @@
 
                         <div class="block-content">
 
-                            <form class="form-horizontal push-5-t" action="base_forms_premade.html" method="post" onsubmit="return false;">
+                            <form class="form-horizontal push-5-t" action="/admin/problem/add" method="POST" enctype="multipart/form-data">
+
+                                {!! csrf_field() !!}
 
                                 <div class="form-group">
                                     <label class="col-xs-12" for="nombre">Nombre</label>
                                     <div class="col-xs-12">
                                         <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingresa el nombre del problema...">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-xs-12" for="username">Alias</label>
-                                    <div class="col-xs-12">
-                                        <input class="form-control" type="text" id="alias" name="alias" placeholder="Ingresa el alias del problema...">
                                     </div>
                                 </div>
 
@@ -124,11 +134,12 @@
 
 
                                 <div class="form-group">
-                                    <label class="col-xs-12" for="problema">Descripción del problema</label>
+                                    <label class="col-xs-12" for="pdf">PDF del problema</label>
                                     <div class="col-xs-12">
-                                        <input type="file" id="problema" name="problema">
+                                        <input type="file" id="pdf" name="pdf">
                                     </div>
                                 </div>
+
 
 
                                 <div class="form-group">
@@ -153,7 +164,7 @@
                                             <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
                                             <option value="0">General</option>
                                             <option value="2">Senior</option>
-                                            <option value="3">Junior</option>
+                                            <option value="1">Junior</option>
                                         </select>
                                     </div>
                                 </div>

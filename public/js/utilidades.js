@@ -70,3 +70,14 @@ function fill_team_form( response ) {
     $("#universidade").val( response.universidad );
     $("#categoriae").val( response.categoria );
 }
+function showFile( parametros , url ){
+    _Post( parametros , url , function( response ){
+        window.open( response );
+    });
+}
+
+function downloadFile( parametros , url ){
+    _Post( parametros , url , function( response ){
+            window.open(response, '_self');
+    });
+}
