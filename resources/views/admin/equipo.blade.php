@@ -2,16 +2,15 @@
 
     <!-- Main Container -->
     <main id="main-container">
-        <!-- Stats -->
-
-        <!-- END Stats -->
-
 
         <!-- Page Content -->
         <div class="content">
 
             <div class="row" style="padding: 0px 15px 20px 0px">
-                <div class="col-md-12">
+                <div class="col-md-6">
+                <h2>Equipos</h2>
+                </div>
+                <div class="col-md-6">
                     <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-fadein" type="button">
                         <i class="fa fa-plus"></i> Crear Equipo
                     </button>
@@ -40,21 +39,25 @@
                                 <tr>
                                     <td class="text-center"> {{$team->id}} </td>
                                     <td class="text-left"> {{$team->nombre}} </td>
-                                    <td>Irvin Castellanos Juarez,<br /> Pepito <br/> Galtzia</td>
+                                    <td>
+                                        @foreach($team->integrantes as $integrante )
+                                            {{$integrante->name.' '.$integrante->apellidop.' '.$integrante->apellidom }},<br/>
+                                        @endforeach
+                                    </td>
                                     <td> {{$team->universidad}} </td>
                                     <td class="text-center">None</td>
                                     <td class="text-center"><span class="label label-info">{{$team->categoria}}</span></td>
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <button
-                                                class="btn btn-xs btn-default" 
+                                                class="btn btn-primary" 
                                                 data-toggle="modal" 
                                                 data-target="#modal-edit" 
                                                 onclick="loadTeam( {'_token':'{{csrf_token()}}', 'id' : '{{ $team->id }}'} , '{{ url('/admin/team/load') }}' )"
                                                 type="button">
                                                     <i class="fa fa-pencil"></i>
                                             </button>
-                                            <a class="btn btn-xs btn-default" href="/admin/team/del/{{$team->id}}" ><i class="fa fa-times"></i></a>
+                                            <a class="btn btn-danger" href="/admin/team/del/{{$team->id}}" ><i class="fa fa-times"></i></a>
                                         </div>
                                     </td>
                                 </tr>                                

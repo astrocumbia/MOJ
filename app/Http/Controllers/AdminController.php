@@ -172,6 +172,13 @@ class AdminController extends Controller
 
     public function deleteTeam( $id ){
         $team = Team::find($id);
+        $integrantes = $team->integrantes;
+        
+        foreach ($integrantes as $user) {
+            $user->id_team = 0;
+            $user->save();
+        }
+
         $team->delete();
         return redirect('/admin/team');
     }  

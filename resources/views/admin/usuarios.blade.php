@@ -74,11 +74,11 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group">
-                                                <button class="btn btn-xs btn-default" type="button" data-toggle="modal" data-target="#editUserModal" title="Editar usuario" onclick="loadUser( {'_token':'{{csrf_token()}}',
+                                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#editUserModal" title="Editar usuario" onclick="loadUser( {'_token':'{{csrf_token()}}',
                                                                                                                                                                         'id' : '{{ $usuario->id }}'
                                                                                                                                                                     } , '{{ url('admin/user/load') }}' )"  ><i class="fa fa-pencil"></i></button>
 
-                                                <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Eliminar usuario" onclick="deleteUser( {'_token':'{{csrf_token()}}',
+                                                <button class="btn btn-danger" type="button" data-toggle="tooltip" title="Eliminar usuario" onclick="deleteUser( {'_token':'{{csrf_token()}}',
                                                                                                                                                                         'id' : '{{ $usuario->id }}'
                                                                                                                                                                         } , '{{ url('admin/user/delete') }}' )"><i class="fa fa-times"></i></button>
                                             </div>

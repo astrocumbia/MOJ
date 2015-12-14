@@ -10,7 +10,10 @@
 
 
             <div class="row" style="padding: 0px 0px 20px 0px">
-                <div class="col-md-12">
+                <div class="col-md-6">
+                <h2>Concursos</h2>
+                </div>
+                <div class="col-md-6">
                     <button class="btn btn-success pull-right" 
                             data-toggle="modal" data-target="#modal-fadein" 
                             type="button"><i class="fa fa-plus"></i> Crear nuevo concurso</button>
@@ -58,7 +61,7 @@
                                     
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <button class="btn btn-xs btn-default" 
+                                            <button class="btn btn-primary" 
                                                     type="button" 
                                                     data-toggle="modal" 
                                                     data-target="#modal-edit"
@@ -67,7 +70,7 @@
                                                     >
                                                 <i class="fa fa-pencil"></i>
                                             </button>
-                                            <a class="btn btn-xs btn-default" href="/admin/contest/del/{{$concurso->id}}"><i class="fa fa-times"></i><a/>
+                                            <a class="btn btn-danger" href="/admin/contest/del/{{$concurso->id}}"><i class="fa fa-times"></i><a/>
                                         </div>
                                     </td>
                                 </tr>                                
