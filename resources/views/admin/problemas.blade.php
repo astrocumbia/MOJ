@@ -64,8 +64,8 @@
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Editar usuario"><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Eliminar usuario"><i class="fa fa-times"></i></button>
+                                        <button class="btn  btn-info" type="button" data-toggle="modal" data-target="#editProblemModal" onclick="loadProblem({ '_token':'{{csrf_token()}}', 'id' : '{{ $problema->id }}' },'{{ url('admin/problem/load') }}')" > <i class="fa fa-pencil"></i> </button>
+                                        <button  class="btn  btn-danger" type="button" data-toggle="tooltip" title="Eliminar problema" onclick="deleteProblem(  { '_token':'{{csrf_token()}}', 'id' : '{{ $problema->id }}' },'{{ url('admin/problem/delete') }}' )" ><i id="btndelete"+{{ $problema->id }} class="fa fa-times"></i></button>
                                     </div>
                                 </td>
                             </tr>
@@ -82,7 +82,11 @@
                 <!-- END Header BG Table -->
             </div>
 
-
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    {!! $problemas->render() !!}
+                </div>
+            </div>
 
         </div>
         <!-- END Page Content -->
@@ -105,7 +109,7 @@
 
                         <div class="block-content">
 
-                            <form class="form-horizontal push-5-t" action="/admin/problem/add" method="POST" enctype="multipart/form-data">
+                            <form class="form-horizontal push-5-t" action="/admin/problem/add" method="POST" enctype="multipart/form-data" id="formadd" >
 
                                 {!! csrf_field() !!}
 
@@ -171,7 +175,7 @@
 
                                 <div class="form-group">
                                     <div class="col-xs-10">
-                                        <button class="btn btn-sm btn-danger pull-right">Cancelar</button>
+                                        <button class="btn btn-sm btn-danger pull-right " onclick="clearProblemsForm()" >Cancelar</button>
                                     </div>
                                     <div class="col-xs-2">
                                         <button class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-plus push-5-r"></i> Crear</button>
@@ -187,6 +191,113 @@
         <!-- END Fade In Modal -->
 
 
+
+
+        <!-- Fade In Modal -->
+        <div class="modal fade" id="editProblemModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="block block-themed block-transparent remove-margin-b">
+
+                        <div class="block-header bg-primary-dark">
+                            <ul class="block-options">
+                                <li>
+                                    <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Editar problema</h3>
+                        </div>
+
+                        <div class="block-content">
+
+                            <form class="form-horizontal push-5-t" action="/admin/problem/edit" method="POST" enctype="multipart/form-data" id="formedit">
+
+                                {!! csrf_field() !!}
+
+
+                                <div class="form-group hidden">
+
+                                    <div class="col-xs-12">
+                                        <input class="form-control" type="text" id="ide" name="id" >
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="nombre">Nombre</label>
+                                    <div class="col-xs-12">
+                                        <input class="form-control" type="text" id="nombree" name="nombre" placeholder="Ingresa el nombre del problema...">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="memoria">Memoria (en MB)</label>
+                                    <div class="col-xs-12">
+                                        <input class="form-control" type="text" id="memoriae" name="memoria" placeholder="Memoria límite...">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="tiempo">Tiempo (en Segundos)</label>
+                                    <div class="col-xs-12">
+                                        <input class="form-control" type="text" id="tiempoe" name="tiempo" placeholder="Tiempo límite...">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="pdf">PDF del problema</label>
+                                    <div class="col-xs-12">
+                                        <input type="file" id="pdf" name="pdf">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="entrada">Archivo de entrada</label>
+                                    <div class="col-xs-12">
+                                        <input type="file" id="entrada" name="entrada">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="salida">Archivo de salida</label>
+                                    <div class="col-xs-12">
+                                        <input type="file" id="salida" name="salida">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="categoria">Categoría</label>
+                                    <div class="col-xs-12">
+                                        <select class="js-select2 form-control" id="categorias" name="categoria" style="width: 100%;" data-placeholder="Selecciona una categoría...">
+                                            <option value="0">General</option>
+                                            <option value="2">Senior</option>
+                                            <option value="1">Junior</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-10">
+                                        <a class="btn btn-sm btn-danger pull-right" data-dismiss="modal" onclick="clearProblemsForm()">Cancelar</a>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <button class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-plus push-5-r"></i> Editar</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Fade In Modal -->
 
 
 

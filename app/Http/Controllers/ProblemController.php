@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Concurso;
 use App\Problem;
-
+use Symfony\Component\Translation\Dumper\PoFileDumper;
 
 
 class ProblemController extends Controller
@@ -29,7 +29,7 @@ class ProblemController extends Controller
 
     public function showProblems(){
 
-        $problemas = Problem::orderBy('id' , 'desc' )->paginate( 5 );
+        $problemas = Problem::orderBy('id' , 'asc' )->paginate( 5 );
         return view('admin/problemas' , ['problemas' => $problemas] );
     }
 
@@ -39,12 +39,8 @@ class ProblemController extends Controller
     }
 
     public function showDescriptionget( $name ){
-
-
-        if( Auth::check() )
+        //aqui falta validar que el concurso no este activo o que sea administrador
             return '/files/'.$name;
-        else
-            return null;
     }
 
     public function downloadFile( Request $request ){
@@ -55,9 +51,9 @@ class ProblemController extends Controller
 
     public function addProblems( Request $request )
     {
-        $pdf        = Input::file('pdf');
-        $entrada    = Input::file('entrada');
-        $salida     = Input::file('salida');
+        $pdf        = $request->file('pdf');
+        $entrada    = $request->file('entrada');
+        $salida     = $request->file('salida');
 
         $random = rand(1,100000);
 
@@ -72,12 +68,54 @@ class ProblemController extends Controller
             'pdf'       => $random.$pdf->getClientOriginalName(),
             'in'        => $random.$entrada->getClientOriginalName(),
             'out'       => $random.$salida->getClientOriginalName(),
-            'categoria' => $request->input('categoria'),
+            'categoria' => $request->input('categoria')
         ));
 
         $problema->save();
 
         return redirect('admin/problem');
+    }
+
+    public function  loadProblem( Request $request ){
+        $problema = Problem::find( $request->input('id') );
+        return $problema;
+    }
+
+    public function editProblem( Request $request ){
+
+        $pdf        = $request->file('pdf');
+        $entrada    = $request->file('entrada');
+        $salida     = $request->file('salida');
+
+        $random = rand(1,100000);
+
+        $pdf->move('files', $random.$pdf->getClientOriginalName());
+        $entrada->move('files', $random.$entrada->getClientOriginalName());
+        $salida->move('files', $random.$salida->getClientOriginalName());
+
+
+        Problem::where( 'id' , $request->input('id') )
+            ->update([
+                'nombre'    => $request->input('nombre'),
+                'memoria'   => $request->input('memoria'),
+                'tiempo'    => $request->input('tiempo'),
+                'categoria' => $request->input('categoria'),
+                'pdf'       => $random.$pdf->getClientOriginalName(),
+                'in'        => $random.$entrada->getClientOriginalName(),
+                'out'       => $random.$salida->getClientOriginalName()
+            ]);
+
+        return redirect('admin/problem');
+
+    }
+
+
+    public function deleteProblem( Request $request ){
+
+        $problema = Problem::find( $request->input('id') );
+        $problema->delete();
+        return redirect('admin/problem');
+
     }
 
 

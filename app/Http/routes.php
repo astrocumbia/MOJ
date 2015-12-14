@@ -127,6 +127,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 		Route::post('/showDescription/', 'ProblemController@showDescription');
 		Route::post('/downloadFile/', 'ProblemController@downloadFile');
 		Route::post('/add', 'ProblemController@addProblems');
+		Route::post('/load', 'ProblemController@loadProblem');
+		Route::post('/edit', 'ProblemController@editProblem');
+		Route::post('/delete', 'ProblemController@deleteProblem');
 	 
 	});	
 

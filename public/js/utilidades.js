@@ -22,9 +22,36 @@ function loadUser( parametros , url ){
     _Post( parametros , url , fill_user_form );
 }
 
+function loadProblem( parametros , url ){
+    _Post( parametros , url , fill_problem_form );
+}
+
 function deleteUser( parametros , url ){
     _Post( parametros , url , null );
     location.reload();
+
+}
+
+
+function deleteProblem( parametros , url ){
+
+    var name = "#btndelete" + parametros.id;
+
+    $(name).addClass("fa-spin");
+    _Post( parametros , url , null );
+    location.reload();
+
+}
+
+function fill_problem_form( response ) {
+
+    console.log( response.categoria );
+
+    $("#ide").val( response.id );
+    $("#nombree").val( response.nombre );
+    $("#memoriae").val( response.memoria );
+    $("#tiempoe").val( response.tiempo );
+    $("#categorias").val( response.categoria);
 
 }
 
@@ -40,6 +67,12 @@ function fill_user_form( response ) {
     $("#role").val( response.rol );
     $("#emaile").val( response.email );
 }
+
+function clearProblemsForm( ){
+    $("#formedit").trigger('reset');
+    $("#formadd").trigger('reset');
+}
+
 
 function clearForm( ){
     $("#editUserForm").trigger('reset');
