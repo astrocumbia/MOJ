@@ -6,26 +6,26 @@
 
         <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 60px 0px;">
             <li >
-                <a href="/contest/problemas" >
+                <a href="/contest/problemas/{{$contest->id}}" >
                     <i class="fa fa-file-code-o"></i>
                     Problemas
                 </a>
             </li>
 
             <li class="active">
-                <a  href="/contest/envios" >
+                <a  href="/contest/envios/{{$contest->id}}" >
                     <i class="fa fa-paper-plane-o"></i>
                             Envios
                 </a>
             </li>
             <li>
-                <a  href="/contest/clarificaciones">
+                <a  href="/contest/clarificaciones/{{$contest->id}}">
                     <i class="fa fa-weixin"></i>
                             Clarificaciones
                 </a>
             </li>
             <li>
-                <a  href="/contest/score">
+                <a  href="/contest/score/{{$contest->id}}">
                     <i class="fa fa-trophy"></i>
                             Scoreboard
                 </a>
@@ -54,7 +54,6 @@
                                 @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
                                     <th class="text-center" style="width: 50px;">id</th>
                                     <th class="text-center">Problema</th>
-                                    <th class="text-center">Código</th>
                                     <th class="text-center">Lenguaje</th>
                                     <th class="text-center" style="width: 20%;">Estado</th>
                                     <th class="text-center" style="width: 100px;">Veredicto</th>
@@ -72,8 +71,7 @@
                                 @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
                                     @foreach( $envios as $envio )
                                         <td class="text-center">{{ $envio->id }}</td>
-                                        <td class="text-center">{{ $envio->id_problema }}</td>
-                                        <td class="text-center">Código</td>
+                                        <td class="text-center"><a class="link-effect"  onclick="downloadFile( { 'name' : '{{ $envio->codigo }}' , '_token':'{{csrf_token()}}'}  , '{{ url('contest/envios/downloadFile') }}')">{{ $envio->problema->nombre }}</a></td>
                                         <td class="text-center">
                                             @if( $envio->lenguaje == 1 )
                                                 <span class="label label-info">
@@ -116,7 +114,7 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#judgemodal" type="button"><i class="fa fa-gavel"></i></button>
+                                            <button class="btn btn-primary" data-toggle="modal" data-target="#judgemodal" type="button" onclick="loadRun({{$envio->id}})"><i class="fa fa-gavel"></i></button>
                                         </td>
                                     @endforeach
                                 @else
@@ -225,6 +223,80 @@
                                                     <input type="file" id="codigo" name="codigo">
                                                 </div>
                                             </div>
+
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    <button data-dismiss="modal" class="btn btn-sm btn-danger pull-right" type="submit">
+                                                        <i class="fa fa-remove"></i> Cancelar
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-send"></i> Enviar</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="modal fade" id="judgemodal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="block block-themed block-transparent remove-margin-b">
+
+                                    <div class="block-header bg-primary-dark">
+                                        <ul class="block-options">
+                                            <li>
+                                                <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                                            </li>
+                                        </ul>
+                                        <h3 class="block-title"><i class="fa fa-gavel"></i> Juzgar un problema</h3>
+                                    </div>
+
+                                    <div class="block-content">
+
+                                        <form class="form-horizontal push-10-t push-10" action="/contest/envios/judgeRun" method="post" enctype="multipart/form-data">
+
+                                            {!! csrf_field() !!}
+
+                                            <div class="form-group hidden">
+                                                <div class="form-material form-material-info">
+                                                    <div class="col-xs-12">
+                                                        <input class="form-control" type="text" id="id_envio" name="id_envio">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group hidden">
+                                                <div class="form-material form-material-info">
+                                                    <div class="col-xs-12">
+                                                        <input class="form-control" type="text" id="concurso" name="concurso" value="{{$contest->id}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 " for="example-select2">Veredicto: </label>
+                                                <div class="col-md-9">
+                                                    <select class="js-select2 form-control" id="veredicto" name="veredicto" style="width: 100%;" data-placeholder="Choose one..">
+                                                        <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
+                                                            <option value="1">Aceptado</option>
+                                                            <option value="2">Respuesta Incorrecta</option>
+                                                            <option value="3">Error de Compilación</option>
+                                                            <option value="4">Tiempo Límite Excedido</option>
+                                                            <option value="5">Memoria Límite Excedida</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
 
 
                                             <div class="form-group">

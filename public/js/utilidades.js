@@ -115,3 +115,7 @@ function downloadFile( parametros , url ){
             window.open(response, '_self');
     });
 }
+
+function loadRun( $idRun ){
+    $("#id_envio").val( $idRun );
+}

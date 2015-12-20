@@ -32,6 +32,8 @@ Route::group(['prefix' => '/contest'], function()
 
 	Route::get('/envios/{id}', 'ContestController@showEnvios');
 	Route::post('/envios/addRun', 'ContestController@addEnvio');
+	Route::post('/envios/downloadFile', 'ContestController@downloadFile');
+	Route::post('/envios/judgeRun', 'ContestController@judgeRun');
 
 	Route::get('/clarificaciones', 'ContestController@showClarificaciones');
 
