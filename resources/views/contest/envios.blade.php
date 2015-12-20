@@ -116,7 +116,7 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#judgemodal" type="button" onclick="loadRun( {{ $envio->id }} )"><i class="fa fa-gavel"></i></button>
+                                            <button class="btn btn-primary" data-toggle="modal" data-target="#judgemodal" type="button" onclick="loadRun( {{ $envio->id }} )"><i class="fa fa-gavel"></i></button>
                                         </td>
                                     @endforeach
                                 @else
