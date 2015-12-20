@@ -267,7 +267,7 @@
 
                                     <div class="block-content">
 
-                                        <form class="form-horizontal push-10-t push-10" action="/contest//envios/judgeRun" method="post" enctype="multipart/form-data">
+                                        <form class="form-horizontal push-10-t push-10" action="/contest/envios/judgeRun" method="post" enctype="multipart/form-data">
 
                                             {!! csrf_field() !!}
 
