@@ -16,6 +16,7 @@ class Envios extends Model
         'id_juez',
         'estado',
         'codigo',
+        'lenguaje',
         'veredicto'];
 }
 

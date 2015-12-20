@@ -64,9 +64,7 @@ class AuthController extends Controller
             'username' => $data['username'],
             'apellidom' => $data['apellidom'],
             'apellidop' => $data['apellidop'],
-            'password' => bcrypt($data['password']),
-            'id'=> $data['id'],
-            'rol' =>$data['rol']
+            'password' => bcrypt($data['password'])
         ]);
     }
 }
