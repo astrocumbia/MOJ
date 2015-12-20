@@ -63,7 +63,13 @@
                                 <td class="text-center">{{$problem->nombre}}</td>
                                 <td class="text-center"><a class="link-effect">{{$problem->nombre}}</a></td>
                                 <td class="text-center"><i class="fa fa-flag" style="font-size: 2em; color: #0A0;"></i></td>
-                                <td>{{$problem->categoria}}</td>
+                                <td>
+                                @if( $problem->categoria == 1 )
+                                    Senior
+                                @else
+                                    Junior
+                                @endif
+                                </td>
                                 <td class="text-center">
                                     <button class="btn btn-primary">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>

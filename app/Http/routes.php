@@ -30,7 +30,7 @@ Route::group(['prefix' => '/contest'], function()
 
 	Route::get('/problemas/{id}', 'ContestController@showProblemas');
 
-	Route::get('/envios', 'ContestController@showEnvios');
+	Route::get('/envios/{id}', 'ContestController@showEnvios');
 
 	Route::get('/clarificaciones', 'ContestController@showClarificaciones');
 
