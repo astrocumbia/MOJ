@@ -117,7 +117,7 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#judgemodal" type="button"><i class="fa fa-gavel"></i></button>
+                                            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#judgemodal" type="button" onclick="loadRun( {{ $envio->id }} )"><i class="fa fa-gavel"></i></button>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -226,6 +226,71 @@
                                                 <label class="col-xs-3" for="example-file-input">Archivo: </label>
                                                 <div class="col-xs-9">
                                                     <input type="file" id="codigo" name="codigo">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    <button data-dismiss="modal" class="btn btn-sm btn-danger pull-right" type="submit">
+                                                        <i class="fa fa-remove"></i> Cancelar
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-send"></i> Enviar</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="modal fade" id="judgemodal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="block block-themed block-transparent remove-margin-b">
+
+                                    <div class="block-header bg-primary-dark">
+                                        <ul class="block-options">
+                                            <li>
+                                                <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                                            </li>
+                                        </ul>
+                                        <h3 class="block-title"><i class="fa fa-send"></i> Enviar un nuevo problema</h3>
+                                    </div>
+
+                                    <div class="block-content">
+
+                                        <form class="form-horizontal push-10-t push-10" action="/contest//envios/judgeRun" method="post" enctype="multipart/form-data">
+
+                                            {!! csrf_field() !!}
+
+                                            <div class="form-group hidden">
+                                                <div class="form-material form-material-info">
+                                                    <div class="col-xs-12">
+                                                        <input class="form-control" type="text" id="id_envio" name="id_envio">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 " for="example-select2">Veredicto: </label>
+                                                <div class="col-md-9">
+                                                    <select class="js-select2 form-control" id="veredicto" name="veredicto" style="width: 100%;" data-placeholder="Choose one..">
+                                                        <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
+                                                        <option value="1">Aceptado</option>
+                                                        <option value="2">Respuesta incorrecta</option>
+                                                        <option value="3">Error de compilación</option>
+                                                        <option value="4">Tiempo límite excedido</option>
+                                                        <option value="5">Memoria límite excedida</option>
+
+                                                    </select>
                                                 </div>
                                             </div>
 
