@@ -164,17 +164,16 @@
 
                             <div class="block-content">
 
-                                <form class="form-horizontal push-10-t push-10" action="base_forms_premade.html" method="post" onsubmit="return false;">
+                                <form class="form-horizontal push-10-t push-10" action="" method="post" onsubmit="return false;">
 
                                     <div class="form-group">
                                         <label class="col-md-3 " for="example-select2">Problema: </label>
                                         <div class="col-md-9">
                                             <select class="js-select2 form-control" id="example-select2" name="example-select2" style="width: 100%;" data-placeholder="Choose one..">
                                                 <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
-                                                <option value="1">A - suma de números</option>
-                                                <option value="2">B - Puentes de Acatlima</option>
-                                                <option value="3">C - Mochilazo</option>
-                                                <option value="4">D - El cumpleaños del pochu</option>
+                                                @foreach( $problemas as $problema )
+                                                    <option value="{{$problema->id}}">{{$problema->nombre}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
