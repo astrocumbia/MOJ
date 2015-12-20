@@ -45,7 +45,7 @@
                                         <img class="img-avatar img-avatar48" src="{{ asset('img/avatars/user.png') }}" />
                                     </td>
                                     <td class="font-w600">
-                                        <a class="link-effect" href="/contest/{{$concurso->id}}">{{$concurso->nombre}}</a>
+                                        <a class="link-effect" href="/contest/problemas/{{$concurso->id}}">{{$concurso->nombre}}</a>
                                     </td>
                                     <td>{{$concurso->descripcion}}</td>
                                     <td>{{$concurso->fecha_inicio}} {{$concurso->hora_inicio}}</td>

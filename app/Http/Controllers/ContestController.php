@@ -41,7 +41,7 @@ class ContestController extends Controller
         return view('contest/envios' , ['envios' => $envios] );
     }
 
-    public function showProblemas( $id )
+    public function showProblemas( $contest_id )
     {
         $data = Problem::all();
         return view('contest/problemas',['problemas'=>$data]);   
