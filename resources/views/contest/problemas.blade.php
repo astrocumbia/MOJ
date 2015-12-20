@@ -4,14 +4,14 @@
 
             <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 60px 0px;">
                 <li class="active">
-                    <a href="/contest/problemas" >
+                    <a href="/contest/problemas/{{$contest->id}}" >
                         <i class="fa fa-file-code-o"></i>
                         Problemas
                     </a>
                 </li>
             
                 <li >
-                    <a  href="/contest/envios" >
+                    <a  href="/contest/envios/{{$contest->id}}" >
                         <i class="fa fa-paper-plane-o"></i>
                                 Envios
                     </a>
@@ -58,11 +58,12 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach( $contest->problems()->get() as  $problem )
                             <tr>                        
-                                <td class="text-center">A+B</td>
-                                <td class="text-center"><a class="link-effect">A+B.pdf</a></td>
+                                <td class="text-center">{{$problem->nombre}}</td>
+                                <td class="text-center"><a class="link-effect">{{$problem->nombre}}</a></td>
                                 <td class="text-center"><i class="fa fa-flag" style="font-size: 2em; color: #0A0;"></i></td>
-                                <td>Senior</td>
+                                <td>{{$problem->categoria}}</td>
                                 <td class="text-center">
                                     <button class="btn btn-primary">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -72,7 +73,7 @@
                                     </button>
                                 </td>
                             </tr>
-
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -101,12 +102,15 @@
 
                             <div class="block-content">
 
-                                <form class="form-horizontal push-10-t push-10" action="base_forms_premade.html" method="post" onsubmit="return false;">
+                                <form class="form-horizontal push-10-t push-10" action="/contest/problemas/save" method="post" >
+                                    {!! csrf_field() !!}
+
+                                    <input value="{{$contest->id}}" name="contest_id" id="contest_id" type="hidden" />
 
                                     <div class="form-group">
                                         <label class="col-md-3 " for="example-select2">Problema: </label>
                                         <div class="col-md-9">
-                                            <select class="js-select2 form-control" id="example-select2" name="example-select2" style="width: 100%;" data-placeholder="Choose one..">
+                                            <select class="js-select2 form-control" id="problem_id" name="problem_id" style="width: 100%;" data-placeholder="Choose one..">
                                                 @foreach( $problemas as $problema )
                                                     <option value="{{$problema->id}}">{{$problema->nombre}}</option>    
                                                 @endforeach

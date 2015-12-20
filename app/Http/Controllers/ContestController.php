@@ -10,6 +10,7 @@ use App\Envios;
 use Auth;
 
 use App\Problem;
+use App\Concurso;
 
 class ContestController extends Controller
 {
@@ -36,10 +37,27 @@ class ContestController extends Controller
         return view('contest/envios' , ['envios' => $envios , 'problemas' => $problemas ] );
     }
 
+
+    public function saveProblemas( Request $request )
+    {
+        $data = $request->input();
+        $id   = $request->input('contest_id');
+        Concurso::insertProblemContest($data);
+        return redirect('contest/problemas/'.$id);
+    }
+
+
     public function showProblemas( $contest_id )
     {
-        $data = Problem::all();
-        return view('contest/problemas',['problemas'=>$data]);   
+        $contest = Concurso::find( $contest_id );
+        //$problems =  $contest->problems()->get();
+        
+        $data = [
+            'contest' => $contest,
+            'problemas' => Problem::all(),
+            ];
+        return view('contest/problemas',$data );   
+        
     }
 
     public function showClarificaciones()

@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
+
+use App\Problem;
 
 class Concurso extends Model
 {
@@ -27,4 +30,18 @@ class Concurso extends Model
     			'hora_fin',
     			'descripcion'];
 
+    public static function insertProblemContest( $data ){
+        $row = [
+            'problem_id' => $data['problem_id'],
+            'contest_id' => $data['contest_id'],
+            'color'      => $data['color']
+        ];
+        return DB::table( 'contest_problem' )->insert($row);
+    }
+
+
+    public function problems(){
+
+        return $this->belongsToMany('App\Problem', 'contest_problem', 'contest_id', 'problem_id');
+    }
 }
