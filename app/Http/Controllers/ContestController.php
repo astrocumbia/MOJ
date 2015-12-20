@@ -16,7 +16,6 @@ use App\Mensajes;
 class ContestController extends Controller
 {
 
-
     public function judgeRun( Request $request ){
 
         Envios::where( 'id' , $request->input('id_envio') )
@@ -33,6 +32,7 @@ class ContestController extends Controller
         return '/files/codigos/'.$request->input('name');
     }
 
+
     public function addEnvio( Request $request ){
 
         $codigo = $request->file('codigo');
@@ -40,7 +40,7 @@ class ContestController extends Controller
 
         $codigo->move('files/codigos', $random.$codigo->getClientOriginalName());
 
-        $envio = new Envios(array(
+        $envio = new Envio(array(
 
             'id_usuario' => Auth::user()->id,
             'id_concurso' => $request->input('id_concurso'),
@@ -53,17 +53,10 @@ class ContestController extends Controller
         ));
 
         $envio->save();
-        return redirect('/contest/envios/'.$request->input('id_concurso') );
-    }
+
+        return redirect('/envios/'.$request->input('id_concurso') );
 
 
-    public function updateProblemas( Request  $request )
-    {
-        $idProblema = $request->input('problem_id');
-        $idContest  = $request->input('contest_id');
-        $color      = $request->input('color');
-        Problem::updateColor( $idContest, $idProblema, $color );
-        return redirect('contest/problemas/'.$idContest);
     }
 
     public function showEnvios( $contest_id )
