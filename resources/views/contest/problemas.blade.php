@@ -62,7 +62,7 @@
                             <tr>                        
                                 <td class="text-center">{{$problem->nombre}}</td>
                                 <td class="text-center"><a class="link-effect">{{$problem->nombre}}</a></td>
-                                <td class="text-center"><i class="fa fa-flag" style="font-size: 2em; color: #0A0;"></i></td>
+                                <td class="text-center"><i class="fa fa-flag" style="font-size: 2em; color: {{App\Problem::getColor($contest->id,$problem->id)}};"></i></td>
                                 <td>
                                 @if( $problem->categoria == 1 )
                                     Senior

@@ -50,7 +50,6 @@ class ContestController extends Controller
     public function showProblemas( $contest_id )
     {
         $contest = Concurso::find( $contest_id );
-        //$problems =  $contest->problems()->get();
         
         $data = [
             'contest' => $contest,
