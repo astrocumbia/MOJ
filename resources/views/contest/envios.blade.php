@@ -274,6 +274,15 @@
                                             <div class="form-group hidden">
                                                 <div class="form-material form-material-info">
                                                     <div class="col-xs-12">
+                                                        <input class="form-control" type="text" id="concurso" name="concurso" value="{{$contest->id}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group hidden">
+                                                <div class="form-material form-material-info">
+                                                    <div class="col-xs-12">
                                                         <input class="form-control" type="text" id="id_envio" name="id_envio">
                                                     </div>
                                                 </div>
