@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Envios;
+use Auth;
 
 use App\Problem;
 
@@ -13,6 +15,7 @@ class ContestController extends Controller
 {
 
 
+    public function showEnvios( Request $request )
     /**
      * Display the specified resource.
      *
@@ -23,7 +26,19 @@ class ContestController extends Controller
 
     public function showEnvios()
     {
-        return view('contest/envios');
+        if( Auth::user()->rol == 1 || Auth::user()->rol == 2 ){
+            $envios = Envios::where('id_concurso' , $request->input('id_concurso') )
+                ->orderBy('id' , 'asc' )
+                ->paginate( 10 );
+        }
+        else{
+            $envios = Envios::where( 'id_concurso' , $request->input('id_concurso') )
+                ->where( 'id_usuario' , Auth::user()->id )
+                ->orderBy('id' , 'asc' )
+                ->paginate( 10 );
+        }
+
+        return view('contest/envios' , ['envios' => $envios] );
     }
 
     public function showProblemas( $id )

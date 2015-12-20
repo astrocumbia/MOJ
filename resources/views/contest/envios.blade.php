@@ -35,12 +35,15 @@
             </ul>
         
         <!-- Page Content -->
-        <div class="content">           
+        <div class="content">
+
+            @if( Auth::user()->rol == 3 )
             <div class="row" style="padding: 0px 15px 10px 0px">
                 <div class="col-md-12">
-                    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-fadein" type="button"><i class="fa fa-send"></i>  Enviar problema</button>
+                    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modalenviar" type="button"><i class="fa fa-send"></i>  Enviar problema</button>
                 </div>
             </div>
+            @endif
 
 
             <div class="col-lg-12">
@@ -50,51 +53,91 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th class="text-center" style="width: 50px;">id</th>
-                                <th class="text-center">problema</th>
-                                <th class="text-center">alias</th>
-                                <th class="text-center" style="width: 20%;">Estado</th>
-                                <th class="text-center" style="width: 100px;">Veredicto</th>
+                                @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
+                                    <th class="text-center" style="width: 50px;">id</th>
+                                    <th class="text-center">Problema</th>
+                                    <th class="text-center">Código</th>
+                                    <th class="text-center" style="width: 20%;">Estado</th>
+                                    <th class="text-center" style="width: 100px;">Veredicto</th>
+                                    <th class="text-center">Juzgar</th>
+                                @elseif( Auth::user()->rol == 3 )
+                                    <th class="text-center" style="width: 50px;">id</th>
+                                    <th class="text-center">Problema</th>
+                                    <th class="text-center" style="width: 20%;">Estado</th>
+                                    <th class="text-center" style="width: 100px;">Veredicto</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td class="text-center">1293</td>
-                                <td class="text-center">Suma de números</td>
-                                <td class="text-center">A</td>
-                                <td class="text-center">
-                                    <span class="label label-info">Enviado</span>
-                                </td>
-                                <td class="text-center">
-                                    <span class="label label-info"></span>
-                                </td>
+                                @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
+                                    @foreach( $envios as $envio )
+                                        <td class="text-center">{{ $envio->id }}</td>
+                                        <td class="text-center">{{ $envio->id_problema }}</td>
+                                        <td class="text-center">Código</td>
+                                        <td class="text-center">
+                                            @if( $envio->estado == 1 )
+                                                <span class="label label-info">
+                                                    Enviado
+                                                </span>
+                                            @else
+                                                <span class="label label-success">
+                                                    Juzgado
+                                                </span>
+                                            @endif
+                                        </td>
+                                        <td class="text-center">
+                                            @if( $envio->veredicto == 1 )
+                                                <span class="label label-success">Aceptado</span>
+                                            @elseif( $envio->veredicto == 2 )
+                                                <span class="label label-danger">Respuesta incorrecta</span>
+                                            @elseif( $envio->veredicto == 3)
+                                                <span class="label label-danger">Error de compilación</span>
+                                            @elseif( $envio->veredicto == 4)
+                                                <span class="label label-danger">Tiempo límite excedido</span>
+                                            @elseif( $envio->veredicto == 5)
+                                                <span class="label label-danger">Memoria límite excedida</span>
+                                            @else
+                                                <span class="label label-danger"></span>
+                                            @endif
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#judgemodal" type="button"><i class="fa fa-gavel"></i></button>
+                                        </td>
+                                    @endforeach
+                                @else
+                                    @foreach( $envios as $envio )
+                                        <td class="text-center">{{ $envio->id }}</td>
+                                        <td class="text-center">{{ $envio->id_problema }}</td>
+                                        <td class="text-center">
+                                            @if( $envio->estado == 1 )
+                                                <span class="label label-info">
+                                                    Enviado
+                                                </span>
+                                            @else
+                                                <span class="label label-success">
+                                                    Juzgado
+                                                </span>
+                                            @endif
+                                        </td>
+                                        <td class="text-center">
+                                            @if( $envio->veredicto == 1 )
+                                                <span class="label label-success">Aceptado</span>
+                                            @elseif( $envio->veredicto == 2 )
+                                                <span class="label label-danger">Respuesta incorrecta</span>
+                                            @elseif( $envio->veredicto == 3)
+                                                <span class="label label-danger">Error de compilación</span>
+                                            @elseif( $envio->veredicto == 4)
+                                                <span class="label label-danger">Tiempo límite excedido</span>
+                                            @elseif( $envio->veredicto == 5)
+                                                <span class="label label-danger">Memoria límite excedida</span>
+                                            @else
+                                                <span class="label label-danger"></span>
+                                            @endif
+                                        </td>
+                                    @endforeach
+                                @endif
                             </tr>
-                            <tr>
-                                <td class="text-center">1221</td>
-                                <td class="text-center">Los puentes de Kracovia</td>
-                                <td class="text-center">B</td>
-                                <td class="text-center">
-                                    <span class="label label-info">Juzgado</span>
-                                </td>
-                                <td class="text-center">
-                                    <span class="label label-success">Aceptado</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">1523</td>
-                                <td class="text-center">Rayo láser</td>
-                                <td class="text-center">F</td>
-                                <td class="text-center">
-                                    <span class="label label-info">Juzgado</span>
-                                </td>
-                                <td class="text-center">
-                                    <span class="label label-danger">Error de compilación</span>
-                                </td>
-                            </tr>
-
-
-
-
                             </tbody>
                         </table>
                     </div>
@@ -105,7 +148,7 @@
 
 
             <!-- Fade In Modal -->
-            <div class="modal fade" id="modal-fadein" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="modalenviar" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="block block-themed block-transparent remove-margin-b">

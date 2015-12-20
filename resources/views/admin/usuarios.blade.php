@@ -212,7 +212,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-10">
-                                        <button class="btn btn-sm btn-info pull-right" onclick="clearForm()"><i class="fa fa-wrench push-5-r"></i>Limpiar</button>
+                                        <a class="btn btn-sm btn-info pull-right" onclick="clearForm()"><i class="fa fa-wrench push-5-r"></i>Limpiar</a>
                                     </div>
                                     <div class="col-md-2">
                                         <button class="btn btn-sm btn-success pull-right" type="submit" ><i class="fa fa-check push-5-r"></i>Agregar</button>
