@@ -41,7 +41,7 @@ class ContestController extends Controller
 
         $codigo->move('files/codigos', $random.$codigo->getClientOriginalName());
 
-        $envio = new Envio(array(
+        $envio = new Envios(array(
 
             'id_usuario' => Auth::user()->id,
             'id_concurso' => $request->input('id_concurso'),
@@ -55,7 +55,7 @@ class ContestController extends Controller
 
         $envio->save();
 
-        return redirect('/envios/'.$request->input('id_concurso') );
+        return redirect('/contest/envios/'.$request->input('id_concurso') );
 
 
     }

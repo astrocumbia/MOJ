@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28687b08-a9c3-451f-a918-e861d62f2d20" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/contest/clarificaciones.blade.php" afterPath="$PROJECT_DIR$/resources/views/contest/clarificaciones.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ContestController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContestController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/contest/envios.blade.php" afterPath="$PROJECT_DIR$/resources/views/contest/envios.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -40,18 +40,18 @@
       <file leaf-file-name="ProblemController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProblemController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="75" column="41" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContestController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ContestController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.178572">
-              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.8208">
+              <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -59,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="envios.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="envios.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/contest/envios.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3344">
-              <caret line="186" column="64" selection-start-line="186" selection-start-column="64" selection-end-line="186" selection-end-column="64" />
+            <state vertical-scroll-proportion="-17.642857">
+              <caret line="198" column="126" selection-start-line="198" selection-start-column="126" selection-end-line="198" selection-end-column="126" />
               <folding />
             </state>
           </provider>
@@ -74,6 +74,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-10.178572">
               <caret line="152" column="22" selection-start-line="152" selection-start-column="22" selection-end-line="152" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.857142">
+              <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -126,10 +136,10 @@
         <option value="$PROJECT_DIR$/database/migrations/2015_12_19_230411_create_envios_table.php" />
         <option value="$PROJECT_DIR$/app/Envios.php" />
         <option value="$PROJECT_DIR$/resources/views/contest/includes/footer.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ContestController.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/resources/views/contest/clarificaciones.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/contest/envios.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ContestController.php" />
       </list>
     </option>
   </component>
@@ -487,7 +497,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450648278091</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="se trabajo en la parte de notificaciones&#10;">
+      <created>1450650961321</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1450650961321</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -699,6 +715,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.142858">
           <caret line="30" column="94" selection-start-line="30" selection-start-column="94" selection-end-line="30" selection-end-column="94" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -824,30 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProblemController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="41" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/files/783salida.out">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -900,16 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.178572">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/contest/clarificaciones.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.178572">
@@ -918,11 +901,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.857142">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/contest/envios.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3344">
-          <caret line="186" column="64" selection-start-line="186" selection-start-column="64" selection-end-line="186" selection-end-column="64" />
+        <state vertical-scroll-proportion="-17.642857">
+          <caret line="198" column="126" selection-start-line="198" selection-start-column="126" selection-end-line="198" selection-end-column="126" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProblemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="41" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8208">
+          <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
