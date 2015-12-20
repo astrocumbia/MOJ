@@ -20,6 +20,7 @@ class CreateEnviosTable extends Migration
             $table->integer('id_juez');
             $table->integer('estado');
             $table->integer('veredicto');
+            $table->integer('lenguaje');
             $table->text('codigo');
             $table->timestamps();
         });

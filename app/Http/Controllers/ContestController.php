@@ -15,26 +15,50 @@ use App\Concurso;
 class ContestController extends Controller
 {
 
+    public function addEnvio( Request $request ){
 
-    public function showEnvios( Request $request )
+        $codigo = $request->file('codigo');
+        $random = rand(1,100000);
+
+        $codigo->move('files/codigos', $random.$codigo->getClientOriginalName());
+
+        $envio = new Envios(array(
+
+            'id_usuario' => Auth::user()->id,
+            'id_concurso' => $request->input('id_concurso'),
+            'estado' => 1,
+            'veredicto' => 10,
+            'id_juez' => -1,
+            'codigo' => $random.$codigo->getClientOriginalName(),
+            'id_problema' => $request->input('id_problema'),
+            'lenguaje' => $request->input('lenguaje')
+        ));
+
+        $envio->save();
+
+        return redirect('/contest/envios/'.$request->input('id_concurso') );
+
+
+    }
+
+    public function showEnvios( $contest_id )
     {
 
-        $problemas = Problem::all();
-
-
         if( Auth::user()->rol == 1 || Auth::user()->rol == 2 ){
-            $envios = Envios::where('id_concurso' , $request->input('id_concurso') )
+            $envios = Envios::where('id_concurso' , $contest_id )
                 ->orderBy('id' , 'asc' )
                 ->paginate( 10 );
         }
         else{
-            $envios = Envios::where( 'id_concurso' , $request->input('id_concurso') )
+            $envios = Envios::where( 'id_concurso' , $contest_id )
                 ->where( 'id_usuario' , Auth::user()->id )
                 ->orderBy('id' , 'asc' )
                 ->paginate( 10 );
         }
 
-        return view('contest/envios' , ['envios' => $envios , 'problemas' => $problemas ] );
+        $contest = Concurso::find( $contest_id );
+
+        return view('contest/envios' , ['envios' => $envios ,  'contest' => $contest ] );
     }
 
 
