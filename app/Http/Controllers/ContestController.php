@@ -16,16 +16,11 @@ class ContestController extends Controller
 
 
     public function showEnvios( Request $request )
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-
-    public function showEnvios()
     {
+
+        $problemas = Problem::all();
+
+
         if( Auth::user()->rol == 1 || Auth::user()->rol == 2 ){
             $envios = Envios::where('id_concurso' , $request->input('id_concurso') )
                 ->orderBy('id' , 'asc' )
@@ -38,7 +33,7 @@ class ContestController extends Controller
                 ->paginate( 10 );
         }
 
-        return view('contest/envios' , ['envios' => $envios] );
+        return view('contest/envios' , ['envios' => $envios , 'problemas' => $problemas ] );
     }
 
     public function showProblemas( $id )

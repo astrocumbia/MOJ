@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28687b08-a9c3-451f-a918-e861d62f2d20" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_12_19_230411_create_envios_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Envios.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ContestController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContestController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/blade.xml" afterPath="$PROJECT_DIR$/.idea/blade.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/contest/envios.blade.php" afterPath="$PROJECT_DIR$/resources/views/contest/envios.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/usuarios.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/usuarios.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="32eae4a0-f9e4-467a-87fb-0c00f77df64c" name="no subir" comment="" />
@@ -45,8 +40,8 @@
       <file leaf-file-name="ProblemController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProblemController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.785714">
-              <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="67" />
+            <state vertical-scroll-proportion="-9.5">
+              <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="53" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -67,12 +62,10 @@
       <file leaf-file-name="ContestController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.428571">
-              <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+            <state vertical-scroll-proportion="-18.321428">
+              <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
-                <marker date="1450578593000" expanded="true" signature="1130:1141" placeholder="{...}" />
-                <marker date="1450578593000" expanded="true" signature="1130:1344" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -81,8 +74,8 @@
       <file leaf-file-name="envios.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/contest/envios.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4224">
-              <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.544">
+              <caret line="174" column="105" selection-start-line="174" selection-start-column="105" selection-end-line="174" selection-end-column="105" />
               <folding>
                 <element signature="e#169#195#0#HTML" expanded="true" />
                 <element signature="e#1249#1283#0#HTML" expanded="true" />
@@ -92,8 +85,8 @@
                 <element signature="e#2565#2585#0#HTML" expanded="true" />
                 <element signature="e#2728#2747#0#HTML" expanded="true" />
                 <element signature="e#2820#2841#0#HTML" expanded="true" />
-                <element signature="e#9592#9612#0#HTML" expanded="true" />
-                <element signature="e#10676#10696#0#HTML" expanded="true" />
+                <element signature="e#9569#9589#0#HTML" expanded="true" />
+                <element signature="e#10528#10548#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -705,13 +698,20 @@
       <option name="project" value="LOCAL" />
       <updated>1450051460794</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="se trabajo en la parte de notificaciones&#10;">
+      <created>1450578826868</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1450578826869</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1276" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -727,7 +727,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -763,7 +762,8 @@
     <MESSAGE value="Eliminar usuarios y creacion del controlador de problemas" />
     <MESSAGE value="agrega problemas!" />
     <MESSAGE value="agregar, editar y eliminar problemas...." />
-    <option name="LAST_COMMIT_MESSAGE" value="agregar, editar y eliminar problemas...." />
+    <MESSAGE value="se trabajo en la parte de notificaciones&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="se trabajo en la parte de notificaciones&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1122,16 +1122,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProblemController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.785714">
-          <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="67" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/usuarios.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.142858">
@@ -1140,22 +1130,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContestController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProblemController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.428571">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        <state vertical-scroll-proportion="-9.5">
+          <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="53" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
-            <marker date="1450578593000" expanded="true" signature="1130:1141" placeholder="{...}" />
-            <marker date="1450578593000" expanded="true" signature="1130:1344" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.321428">
+          <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/contest/envios.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4224">
-          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.544">
+          <caret line="174" column="105" selection-start-line="174" selection-start-column="105" selection-end-line="174" selection-end-column="105" />
           <folding>
             <element signature="e#169#195#0#HTML" expanded="true" />
             <element signature="e#1249#1283#0#HTML" expanded="true" />
@@ -1165,8 +1163,8 @@
             <element signature="e#2565#2585#0#HTML" expanded="true" />
             <element signature="e#2728#2747#0#HTML" expanded="true" />
             <element signature="e#2820#2841#0#HTML" expanded="true" />
-            <element signature="e#9592#9612#0#HTML" expanded="true" />
-            <element signature="e#10676#10696#0#HTML" expanded="true" />
+            <element signature="e#9569#9589#0#HTML" expanded="true" />
+            <element signature="e#10528#10548#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
