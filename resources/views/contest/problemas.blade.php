@@ -17,13 +17,13 @@
                     </a>
                 </li>
                 <li>
-                    <a  href="/contest/clarificaciones">
+                    <a  href="/contest/clarificaciones/{{$contest->id}}">
                         <i class="fa fa-weixin"></i>
                                 Clarificaciones
                     </a>
                 </li>
                 <li>
-                    <a  href="/contest/score">
+                    <a  href="/contest/score/{{$contest->id}}">
                         <i class="fa fa-trophy"></i>
                                 Scoreboard
                     </a>

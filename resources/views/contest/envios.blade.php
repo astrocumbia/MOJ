@@ -4,33 +4,33 @@
 <main id="main-container">
 
 
-        <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 60px 0px;">
-            <li >
-                <a href="/contest/problemas" >
-                    <i class="fa fa-file-code-o"></i>
-                    Problemas
-                </a>
-            </li>
-
-            <li class="active">
-                <a  href="/contest/envios" >
-                    <i class="fa fa-paper-plane-o"></i>
-                            Envios
-                </a>
-            </li>
-            <li>
-                <a  href="/contest/clarificaciones">
-                    <i class="fa fa-weixin"></i>
-                            Clarificaciones
-                </a>
-            </li>
-            <li>
-                <a  href="/contest/score">
-                    <i class="fa fa-trophy"></i>
-                            Scoreboard
-                </a>
-            </li>
-        </ul>
+            <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 60px 0px;">
+                <li>
+                    <a href="/contest/problemas/{{$contest->id}}" >
+                        <i class="fa fa-file-code-o"></i>
+                        Problemas
+                    </a>
+                </li>
+            
+                <li  class="active">
+                    <a  href="/contest/envios/{{$contest->id}}" >
+                        <i class="fa fa-paper-plane-o"></i>
+                                Envios
+                    </a>
+                </li>
+                <li>
+                    <a  href="/contest/clarificaciones/{{$contest->id}}">
+                        <i class="fa fa-weixin"></i>
+                                Clarificaciones
+                    </a>
+                </li>
+                <li>
+                    <a  href="/contest/score/{{$contest->id}}">
+                        <i class="fa fa-trophy"></i>
+                                Scoreboard
+                    </a>
+                </li>
+            </ul>
         
         <!-- Page Content -->
         <div class="content">
@@ -68,9 +68,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            
                                 @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
                                     @foreach( $envios as $envio )
+                                    <tr>
                                         <td class="text-center">{{ $envio->id }}</td>
                                         <td class="text-center">{{ $envio->id_problema }}</td>
                                         <td class="text-center">Código</td>
@@ -118,9 +119,11 @@
                                         <td class="text-center">
                                             <button class="btn btn-success pull-right" data-toggle="modal" data-target="#judgemodal" type="button"><i class="fa fa-gavel"></i></button>
                                         </td>
+                                    </tr>
                                     @endforeach
                                 @else
                                     @foreach( $envios as $envio )
+                                    <tr>  
                                         <td class="text-center">{{ $envio->id }}</td>
                                         <td class="text-center">{{ $envio->id_problema }}</td>
                                         <td class="text-center">
@@ -149,9 +152,10 @@
                                                 <span class="label label-danger"></span>
                                             @endif
                                         </td>
+                                    </tr>
                                     @endforeach
                                 @endif
-                            </tr>
+                            
                             </tbody>
                         </table>
                     </div>

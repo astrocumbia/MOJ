@@ -12,6 +12,7 @@ use Auth;
 use App\Problem;
 use App\Concurso;
 use App\Mensajes;
+use App\Scoreboard;
 
 class ContestController extends Controller
 {
@@ -149,9 +150,18 @@ class ContestController extends Controller
     }
 
 
-    public function showScore()
+    public function showScore($id)
     {
-        return view('contest/score');   
+        $contest    =  Concurso::find($id);
+        $problemas  =  $contest->problems()->get();
+        $score      =  Scoreboard::get( $id ); 
+        
+        return view('contest/score',
+                    [   'contest' => $contest,
+                        'num' => count($problemas),
+                        'score' => $score
+                    ]);   
+        
     }
 
 
