@@ -71,7 +71,7 @@
                                 @endif
                                 </td>
                                 <td class="text-center">
-                                    <button class="btn btn-primary">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-editar" type="button" onclick="editarProblema({{$problem->id}});">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                     </button>
                                     <button class="btn btn-danger">
@@ -113,6 +113,7 @@
 
                                     <input value="{{$contest->id}}" name="contest_id" id="contest_id" type="hidden" />
 
+
                                     <div class="form-group">
                                         <label class="col-md-3 " for="example-select2">Problema: </label>
                                         <div class="col-md-9">
@@ -149,6 +150,57 @@
                 </div>
             </div>
             <!-- END Fade In Modal -->
+
+            <!-- Fade In Modal -->
+            <div class="modal fade" id="modal-editar" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="block block-themed block-transparent remove-margin-b">
+
+                            <div class="block-header bg-primary-dark">
+                                <ul class="block-options">
+                                    <li>
+                                        <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                                    </li>
+                                </ul>
+                                <h3 class="block-title"><i class="fa fa-send"></i> Editar Problema</h3>
+                            </div>
+
+                            <div class="block-content">
+
+                                <form class="form-horizontal push-10-t push-10" action="/contest/problemas/update" method="post" >
+                                    {!! csrf_field() !!}
+
+
+                                    <input value="{{$contest->id}}" name="contest_id" id="contest_id" type="hidden" />
+
+                                    <input value="" name="problem_id" id="eproblem_id" type="hidden"/>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 " for="color">Color: </label>
+                                        <div class="col-md-9">
+                                            <input type="color" class="form-control" id="color" name="color"/>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            <button data-dismiss="modal" class="btn btn-sm btn-danger pull-right" type="submit"><i class="fa fa-remove"></i> Cancelar</button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-send"></i> Enviar</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Fade In Modal -->            
 @include('contest.includes.footer')
 
 

@@ -115,3 +115,8 @@ function downloadFile( parametros , url ){
             window.open(response, '_self');
     });
 }
+
+
+function editarProblema( idProblema ){
+    $('#eproblem_id').val(idProblema);
+}

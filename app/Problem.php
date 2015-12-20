@@ -30,4 +30,11 @@ class Problem extends Model
         return $ans->color;
     }
 
+    public static function updateColor( $idContest, $idProblem, $color )
+    {
+        DB::table('contest_problem')
+            ->where('problem_id', $idProblem )
+            ->where('contest_id', $idContest )
+            ->update(['color' => $color]);
+    }
 }

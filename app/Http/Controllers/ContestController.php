@@ -41,6 +41,16 @@ class ContestController extends Controller
 
     }
 
+
+    public function updateProblemas( Request  $request )
+    {
+        $idProblema = $request->input('problem_id');
+        $idContest  = $request->input('contest_id');
+        $color      = $request->input('color');
+        Problem::updateColor( $idContest, $idProblema, $color );
+        return redirect('contest/problemas/'.$idContest);
+    }
+
     public function showEnvios( $contest_id )
     {
 
