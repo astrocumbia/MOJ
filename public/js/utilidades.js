@@ -116,13 +116,11 @@ function downloadFile( parametros , url ){
     });
 }
 
-<<<<<<< HEAD
 
 function editarProblema( idProblema ){
     $('#eproblem_id').val(idProblema);
 }
-=======
+
 function loadRun( $idRun ){
     $("#id_envio").val( $idRun );
 }
->>>>>>> dccf99339623e520dbafb22a86730aec2dc793e3
