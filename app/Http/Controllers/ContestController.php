@@ -15,6 +15,23 @@ use App\Concurso;
 class ContestController extends Controller
 {
 
+
+    public function judgeRun( Request $request ){
+
+        Envios::where( 'id' , $request->input('id_envio') )
+            ->update([
+                'estado'    => 2,
+                'veredicto' => $request->input('veredicto'),
+                'id_juez'    => Auth::user()->id
+            ]);
+
+        return redirect('contest/envios/'.$request->input('concurso'));
+    }
+
+    public function downloadFile( Request $request  ){
+        return '/files/codigos/'.$request->input('name');
+    }
+
     public function addEnvio( Request $request ){
 
         $codigo = $request->file('codigo');
