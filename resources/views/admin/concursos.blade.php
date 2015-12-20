@@ -45,7 +45,7 @@
                                         <img class="img-avatar img-avatar48" src="{{ asset('img/avatars/user.png') }}" />
                                     </td>
                                     <td class="font-w600">
-                                        <a class="link-effect" href="/contest/">{{$concurso->nombre}}</a>
+                                        <a class="link-effect" href="/contest/{{$concurso->id}}">{{$concurso->nombre}}</a>
                                     </td>
                                     <td>{{$concurso->descripcion}}</td>
                                     <td>{{$concurso->fecha_inicio}} {{$concurso->hora_inicio}}</td>
@@ -138,7 +138,7 @@
                                 <div class="col-xs-6">
                                     <label for="fecha">Hora de inicio</label>
                                     <input class="form-control" 
-                                            type="text" id="hora_ini" 
+                                            type="time" id="hora_ini" 
                                             name="hora_inicio" placeholder="HH:MM"
                                             required >
                                 </div>

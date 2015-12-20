@@ -2,7 +2,7 @@
 
 <main id="main-container">
 
-        <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 25px 0px;">
+        <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 60px 0px;">
             <li >
                 <a href="/contest/problemas" >
                     <i class="fa fa-file-code-o"></i>

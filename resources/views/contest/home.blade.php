@@ -2,15 +2,15 @@
         <!-- Main Container -->
     <main id="main-container">
 
-        <ul class="nav nav-pills push">
-            <li class="active">
+        <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 60px 0px;">
+            <li >
                 <a href="/contest/problemas" >
                     <i class="fa fa-file-code-o"></i>
                     Problemas
                 </a>
             </li>
         
-            <li class="">
+            <li class="active">
                 <a  href="/contest/envios" >
                     <i class="fa fa-paper-plane-o"></i>
                             Envios

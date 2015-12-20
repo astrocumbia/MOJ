@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Problem;
+
 class ContestController extends Controller
 {
 
@@ -18,14 +20,16 @@ class ContestController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+
     public function showEnvios()
     {
         return view('contest/envios');
     }
 
-    public function showProblemas()
+    public function showProblemas( $id )
     {
-        return view('contest/problemas');   
+        $data = Problem::all();
+        return view('contest/problemas',['problemas'=>$data]);   
     }
 
     public function showClarificaciones()

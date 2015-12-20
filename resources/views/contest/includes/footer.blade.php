@@ -36,6 +36,15 @@
 <script src="{{ asset('js/pages/base_pages_dashboard.js') }}"></script>
 <script src="{{ asset('js/timer.js') }}"></script>
 
+<script src="{{ asset('js/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js') }}"></script>
+
+<!-- Page JS Code -->
+<script>
+    $(function () {
+        // Init page helpers (BS Datepicker + BS Colorpicker + Select2 + Masked Input + Tags Inputs plugins)
+        App.initHelpers(['colorpicker']);
+    });
+</script>
 
 </body>
 </html>

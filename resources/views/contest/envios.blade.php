@@ -3,38 +3,39 @@
 <!-- Main Container -->
 <main id="main-container">
 
-        <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 25px 0px;">
-            <li >
-                <a href="/contest/problemas" >
-                    <i class="fa fa-file-code-o"></i>
-                    Problemas
-                </a>
-            </li>
+
+         
+
+            <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 60px 0px;">
+                <li >
+                    <a href="/contest/problemas" >
+                        <i class="fa fa-file-code-o"></i>
+                        Problemas
+                    </a>
+                </li>
+            
+                <li class="active">
+                    <a  href="/contest/envios" >
+                        <i class="fa fa-paper-plane-o"></i>
+                                Envios
+                    </a>
+                </li>
+                <li>
+                    <a  href="/contest/clarificaciones">
+                        <i class="fa fa-weixin"></i>
+                                Clarificaciones
+                    </a>
+                </li>
+                <li>
+                    <a  href="/contest/score">
+                        <i class="fa fa-trophy"></i>
+                                Scoreboard
+                    </a>
+                </li>
+            </ul>
         
-            <li class="active">
-                <a  href="/contest/envios" >
-                    <i class="fa fa-paper-plane-o"></i>
-                            Envios
-                </a>
-            </li>
-            <li>
-                <a  href="/contest/clarificaciones">
-                    <i class="fa fa-weixin"></i>
-                            Clarificaciones
-                </a>
-            </li>
-            <li>
-                <a  href="/contest/score">
-                    <i class="fa fa-trophy"></i>
-                            Scoreboard
-                </a>
-            </li>
-        </ul>
-
-
         <!-- Page Content -->
-        <div class="content">
-
+        <div class="content">           
             <div class="row" style="padding: 0px 15px 10px 0px">
                 <div class="col-md-12">
                     <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-fadein" type="button"><i class="fa fa-send"></i>  Enviar problema</button>
@@ -159,7 +160,9 @@
 
                                     <div class="form-group">
                                         <div class="col-md-10">
-                                            <button class="btn btn-sm btn-danger pull-right" type="submit"><i class="fa fa-remove"></i> Cancelar</button>
+                                            <button data-dismiss="modal" class="btn btn-sm btn-danger pull-right" type="submit">
+                                                <i class="fa fa-remove"></i> Cancelar
+                                            </button>
                                         </div>
                                         <div class="col-md-2">
                                             <button class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-send"></i> Enviar</button>

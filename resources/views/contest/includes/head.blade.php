@@ -76,17 +76,15 @@
     <header id="header-navbar" class="content-mini content-mini-full">
         <!-- Header Navigation Right -->
 
-
-
         <ul class="col-md-11 nav-header pull-right">
             <li class=" pull-left">
-                <h2 class="font-w700 text-primary">Segundo concurso de programación de la Mixteca</h2>
+                <h2 class="font-w700 text-primary">Contest UTM</h2>
             </li>
 
             <li class="pull-right">
                 <div class="btn-group">
                     <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
-                        <img src="assets/img/avatars/avatar10.jpg" alt="Avatar">
+                        <img src="assets/img/avatars/avatar10.jpg" alt="Usuario">
                         <span class="caret"></span>
                     </button>
                      <ul class="dropdown-menu dropdown-menu-right">
@@ -129,5 +127,6 @@
 
         </ul>
         <!-- END Header Navigation Left -->
+        
     </header>
     <!-- END Header -->

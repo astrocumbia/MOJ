@@ -26,11 +26,11 @@ Route::get('/', function () {
 */
 Route::group(['prefix' => '/contest'], function()
 {
-	// seccion administracion de usuarios
-	Route::get('/', 'ContestController@showProblemas');
+
+	Route::get('/show/{id}', 'ContestController@showProblemas');
 
 	//
-	Route::get('/problemas', 'ContestController@showProblemas');
+	Route::get('/{id}/problemas', 'ContestController@showProblemas');
 
 	Route::get('/envios', 'ContestController@showEnvios');
 

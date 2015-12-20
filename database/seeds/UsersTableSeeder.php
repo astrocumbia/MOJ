@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'name' =>'root',
             'email' => 'root'.'@mictlan.mx',
             'password' => bcrypt('toor'),
-	    'rol' => 1,
+            'rol' => 1,
         ]);
     }
 }
