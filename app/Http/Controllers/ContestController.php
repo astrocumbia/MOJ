@@ -11,6 +11,7 @@ use Auth;
 
 use App\Problem;
 use App\Concurso;
+use App\Mensajes;
 
 class ContestController extends Controller
 {
@@ -52,10 +53,7 @@ class ContestController extends Controller
         ));
 
         $envio->save();
-
         return redirect('/contest/envios/'.$request->input('id_concurso') );
-
-
     }
 
 
@@ -110,9 +108,51 @@ class ContestController extends Controller
         
     }
 
-    public function showClarificaciones()
+    public function showClarificaciones( $contest_id )
     {
-        return view('contest/clarificaciones');      
+        $mensajes_recibidos = Mensajes::
+            where('id_concurso' , $contest_id )
+            ->where('id_usuario' ,'!=', Auth::user()->id ) //mensajes que este usuario no envio
+            ->orderBy('id' , 'desc' )
+            ->paginate( 10 );
+
+        $mensajes_enviados = Mensajes::
+
+              where('id_concurso' , $contest_id )
+            ->where('id_usuario' , Auth::user()->id ) //mensajes que este usuario no envio
+            ->orderBy('id' , 'desc' )
+            ->paginate( 10 );
+
+
+        $contest = Concurso::find( $contest_id );
+        return view('contest/clarificaciones', ['contest' => $contest , 'recibidos' =>$mensajes_recibidos , 'enviados'=>$mensajes_enviados ]);
+    }
+
+    public function addMensaje( Request $request ){
+
+        $mensaje = new Mensajes(array(
+
+            'id_usuario' => Auth::user()->id,
+            'id_concurso' => $request->input('id_concurso'),
+            'estado' => 0,
+            'asunto' => $request->input('asunto'),
+            'mensaje' => $request->input('mensaje'),
+        ));
+
+        $mensaje->save();
+
+        return redirect('/contest/clarificaciones/'.$request->input('id_concurso') );
+    }
+
+    public function getMsg( Request  $request ){
+
+        Mensajes::where( 'id' , $request->input('id') )
+            ->update([
+                'estado'    => 1,
+            ]);
+
+        $mensajes = Mensajes::where('id' , $request->input('id') )->first();
+        return $mensajes->mensaje;
     }
 
 
@@ -120,6 +160,8 @@ class ContestController extends Controller
     {
         return view('contest/score');   
     }
+
+
 
 
   

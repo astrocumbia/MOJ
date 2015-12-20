@@ -45,7 +45,7 @@ function deleteProblem( parametros , url ){
 
 function fill_problem_form( response ) {
 
-    console.log( response.categoria );
+
 
     $("#ide").val( response.id );
     $("#nombree").val( response.nombre );
@@ -116,13 +116,22 @@ function downloadFile( parametros , url ){
     });
 }
 
-<<<<<<< HEAD
 
 function editarProblema( idProblema ){
     $('#eproblem_id').val(idProblema);
 }
-=======
+
 function loadRun( $idRun ){
     $("#id_envio").val( $idRun );
 }
->>>>>>> dccf99339623e520dbafb22a86730aec2dc793e3
+
+function loadMsg( $parametros , $url ){
+
+    $("#msg"+$parametros.id ).removeClass("info");
+    _Post( $parametros , $url , fillMsg );
+}
+
+function fillMsg( $mensaje ){
+    $("#cuerpo-mensaje").html( $mensaje );
+}
+
