@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\problem;
+
 class Envios extends Model
 {
     protected $table = 'envios';
@@ -18,5 +20,10 @@ class Envios extends Model
         'codigo',
         'lenguaje',
         'veredicto'];
+
+    public function problema()
+    {
+        return $this->belongsTo('App\Problem', 'id_problema');
+    }
 }
 

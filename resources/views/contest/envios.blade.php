@@ -122,7 +122,7 @@
                                 @else
                                     @foreach( $envios as $envio )
                                         <td class="text-center">{{ $envio->id }}</td>
-                                        <td class="text-center">{{ $envio->id_problema }}</td>
+                                        <td class="text-center">{{ $envio->problema->nombre }}</td>
                                         <td class="text-center">
                                             @if( $envio->estado == 1 )
                                                 <span class="label label-info">
