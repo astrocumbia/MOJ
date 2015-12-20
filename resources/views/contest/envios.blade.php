@@ -188,7 +188,7 @@
 
                                         <form class="form-horizontal push-10-t push-10" action="" method="post" enctype="multipart/form-data">
 
-
+                                            {!! csrf_field() !!}
                                             <div class="form-group hidden">
                                                 <div class="form-material form-material-info">
                                                     <div class="col-xs-12">

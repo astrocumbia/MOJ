@@ -125,9 +125,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="block-content" style="padding: 40px 40px " id="cuerpo-mensaje">
-
-                </div>
+                <div class="block-content" style="padding: 40px 40px " id="cuerpo-mensaje" ></div>
             </div>
         </div>
     </div>
