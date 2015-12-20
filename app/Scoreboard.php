@@ -11,8 +11,15 @@ use App\User;
 class Scoreboard extends Model
 {
 
-	public static function getTeams(){
-				
+	public static function getResueltos($idContest, $idUser)
+	{
+		$solucion = DB::table('envios')
+	            ->where('envios.id_usuario', '=', $idUser)
+	            ->where('envios.id_problema', '=', $problem->id)
+	            ->where('envios.id_concurso', '=', $idContest)
+	            ->where('envios.veredicto', '=', 1)
+	            ->select('count(envios.id) as intentos')
+	            ->first();	
 	}
 
 	public static function getProblems( $idContest, $idUser )
@@ -70,10 +77,21 @@ class Scoreboard extends Model
 
 			$ans = (object)array( 
 						'nombre'=> $equipo->name, 
-						'problemas' => $problemas
+						'problemas' => $problemas,
+					
 					);
 			array_push($contest,  $ans);
 		}
 		return $contest;
+/*
+		return usort($contest,  function compare_weights($a, $b) { 
+    								if($a->resueltos == $b->resueltos) {
+								        return 0;
+								    } 
+								    return ($a->resueltos < $b->resueltos) ? -1 : 1;
+								} );
+*/
 	}
 }
+
+
