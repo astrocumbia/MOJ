@@ -182,7 +182,7 @@
 
                                     <div class="block-content">
 
-                                        <form class="form-horizontal push-10-t push-10" action="" method="post" enctype="multipart/form-data">
+                                        <form class="form-horizontal push-10-t push-10" action="/contest/envios/addRun" method="post" enctype="multipart/form-data">
 
                                             {!! csrf_field() !!}
                                             <div class="form-group hidden">
@@ -196,7 +196,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 " for="example-select2">Problema: </label>
                                                 <div class="col-md-9">
-                                                    <select class="js-select2 form-control" id="id_concurso" name="id_concurso" style="width: 100%;" data-placeholder="Choose one..">
+                                                    <select class="js-select2 form-control" id="id_problema" name="id_problema" style="width: 100%;" data-placeholder="Choose one..">
                                                         <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
                                                         @foreach( $contest->problems()->get() as $problema )
                                                             <option value="{{$problema->id}}">{{$problema->nombre}}</option>
