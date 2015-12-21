@@ -38,6 +38,7 @@
                         <table class="table table-borderless">
                             <thead>
                             <tr>
+                                <th class="text-center" style="width: 20px;">Resueltos</th>
                                 <th class="text-center" style="width: 20px;">Posición</th>
                                 <th class="text-center">Equipo</th>
                                 <th class="text-center" style="width: 10%;">Categoría</th>
@@ -50,6 +51,9 @@
                             @foreach($score as $team)
 
                             <tr class="active">
+                                <td>
+                                    {{$team->resueltos}}
+                                </td>
                                 <td class="text-center">
                                     <i class="fa fa-trophy" style="font-size: 2em; color: #FFD700;"></i>
                                 </td>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use App\Problem;
 use App\User;
+use App\Concurso;
 
 class Scoreboard extends Model
 {
@@ -15,11 +16,11 @@ class Scoreboard extends Model
 	{
 		$solucion = DB::table('envios')
 	            ->where('envios.id_usuario', '=', $idUser)
-	            ->where('envios.id_problema', '=', $problem->id)
 	            ->where('envios.id_concurso', '=', $idContest)
 	            ->where('envios.veredicto', '=', 1)
-	            ->select('count(envios.id) as intentos')
+	            ->select(DB::raw('count(envios.id_problema) as intentos'))
 	            ->first();	
+	    return $solucion->intentos;
 	}
 
 	public static function getProblems( $idContest, $idUser )
@@ -66,6 +67,8 @@ class Scoreboard extends Model
 	    return $response;
 	}
 
+
+
 	public static function get( $idContest )
 	{
 		$concursantes = User::where('rol', 3)
@@ -78,20 +81,20 @@ class Scoreboard extends Model
 			$ans = (object)array( 
 						'nombre'=> $equipo->name, 
 						'problemas' => $problemas,
-					
+						'resueltos' => Scoreboard::getResueltos($idContest, $equipo->id)
 					);
 			array_push($contest,  $ans);
 		}
+		
+		
+		usort($contest, function($a, $b) {
+    		return $a->resueltos < $b->resueltos ? 1 : -1;
+    	});	
+
 		return $contest;
-/*
-		return usort($contest,  function compare_weights($a, $b) { 
-    								if($a->resueltos == $b->resueltos) {
-								        return 0;
-								    } 
-								    return ($a->resueltos < $b->resueltos) ? -1 : 1;
-								} );
-*/
 	}
+
+	
 }
 
 

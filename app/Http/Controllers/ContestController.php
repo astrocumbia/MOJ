@@ -17,6 +17,11 @@ use App\Scoreboard;
 class ContestController extends Controller
 {
 
+    public function test($id)
+    {
+        Scoreboard::getTime();
+    }
+
     public function judgeRun( Request $request ){
 
         Envios::where( 'id' , $request->input('id_envio') )
@@ -162,6 +167,7 @@ class ContestController extends Controller
                         'score' => $score
                     ]);   
         
+        //print_r( $score );
     }
 
 
