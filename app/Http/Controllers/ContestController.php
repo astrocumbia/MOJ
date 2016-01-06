@@ -16,6 +16,10 @@ use App\Scoreboard;
 
 class ContestController extends Controller
 {
+    public function showDescription( Request $request ){
+        return '/files/'.$request->input('name');
+    }
+
 
     public function test($id)
     {
@@ -103,7 +107,8 @@ class ContestController extends Controller
             'contest' => $contest,
             'problemas' => Problem::all(),
             ];
-        return view('contest/problemas',$data );   
+
+        return view('contest/problemas', $data );
         
     }
 

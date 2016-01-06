@@ -20,7 +20,7 @@
 
 </head>
 
-<body onload="timer( new Date('2015/12/12 17:01:00'), new Date('2015/12/12 20:23:00') );">
+<body onload="timer( new Date( '{{$contest->fecha_inicio.' '.$contest->hora_inicio }}' ), new Date( '{{$contest->fecha_fin.' '.$contest->hora_fin }}' ) );">
 
 <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
 
@@ -78,7 +78,7 @@
 
         <ul class="col-md-11 nav-header pull-right">
             <li class=" pull-left">
-                <h2 class="font-w700 text-primary">Contest UTM</h2>
+                <h2 class="font-w700 text-primary">{{$contest->nombre}}</h2>
             </li>
 
             <li class="pull-right">

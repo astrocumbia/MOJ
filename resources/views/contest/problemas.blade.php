@@ -61,14 +61,14 @@
                             @foreach( $contest->problems()->get() as  $problem )
                             <tr>                        
                                 <td class="text-center">{{$problem->nombre}}</td>
-                                <td class="text-center"><a class="link-effect">{{$problem->nombre}}</a></td>
+                                <td class="text-center"><a class="link-effect" onclick="showFile( { 'name' : '{{ $problem->pdf }}' , '_token':'{{csrf_token()}}'} , '{{ url('contest/problemas/showDescription') }}' )" >PDF</a></td>
                                 <td class="text-center"><i class="fa fa-flag" style="font-size: 2em; color: {{App\Problem::getColor($contest->id,$problem->id)}};"></i></td>
-                                <td>
-                                @if( $problem->categoria == 1 )
-                                    Senior
-                                @else
-                                    Junior
-                                @endif
+                                <td class="text-center">
+                                    @if( $problem->categoria == 1 )
+                                        <span class="label label-primary">Senior</span>
+                                    @else
+                                        <span class="label label-success">Junior</span>
+                                    @endif
                                 </td>
                                 <td class="text-center">
                                     <button class="btn btn-primary" data-toggle="modal" data-target="#modal-editar" type="button" onclick="editarProblema({{$problem->id}});">
