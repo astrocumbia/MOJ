@@ -13,11 +13,15 @@
                 <div class="col-md-6">
                 <h2>Concursos</h2>
                 </div>
-                <div class="col-md-6">
-                    <button class="btn btn-success pull-right" 
-                            data-toggle="modal" data-target="#modal-fadein" 
-                            type="button"><i class="fa fa-plus"></i> Crear nuevo concurso</button>
-                </div>
+
+                @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
+                    <div class="col-md-6">
+                        <button class="btn btn-success pull-right"
+                                data-toggle="modal" data-target="#modal-fadein"
+                                type="button"><i class="fa fa-plus"></i> Crear nuevo concurso</button>
+                    </div>
+                @endif
+
             </div>
 
 
@@ -34,7 +38,9 @@
                                 <th style="width: 10%;">Cierre</th>
                                 <th style="width: 5%;">Estado</th>
                                 <th style="width: 10%;">Tipo</th>
-                                <th class="text-center" style="width: 100px;">Acciones</th>
+                                @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
+                                    <th class="text-center" style="width: 100px;">Acciones</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -58,21 +64,25 @@
                                     @else
                                         <td>Privado</td>
                                     @endif
-                                    
-                                    <td class="text-center">
-                                        <div class="btn-group">
-                                            <button class="btn btn-primary" 
-                                                    type="button" 
-                                                    data-toggle="modal" 
-                                                    data-target="#modal-edit"
-                                                    title="Edit Client"
-                                                    onclick="loadContest( {'_token':'{{csrf_token()}}', 'id' : '{{ $concurso->id }}'} , '{{ url('/admin/contest/load') }}' )"
-                                                    >
-                                                <i class="fa fa-pencil"></i>
-                                            </button>
-                                            <a class="btn btn-danger" href="/admin/contest/del/{{$concurso->id}}"><i class="fa fa-times"></i><a/>
-                                        </div>
-                                    </td>
+
+
+                                    @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <button class="btn btn-primary"
+                                                        type="button"
+                                                        data-toggle="modal"
+                                                        data-target="#modal-edit"
+                                                        title="Edit Client"
+                                                        onclick="loadContest( {'_token':'{{csrf_token()}}', 'id' : '{{ $concurso->id }}'} , '{{ url('/admin/contest/load') }}' )"
+                                                        >
+                                                    <i class="fa fa-pencil"></i>
+                                                </button>
+                                                <a class="btn btn-danger" href="/admin/contest/del/{{$concurso->id}}"><i class="fa fa-times"></i><a/>
+                                            </div>
+                                        </td>
+                                    @endif
+
                                 </tr>                                
                             @endforeach
 

@@ -48,6 +48,8 @@
                                 <i class="si si-trophy"></i><span class="sidebar-mini-hide">Concursos</span>
                             </a>
                         </li>
+
+                        @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
                         <li>
                             <a href="/admin/user">
                                 <i class="si si-user"></i><span class="sidebar-mini-hide">Usuarios</span>
@@ -63,6 +65,7 @@
                                 <i class="si si-notebook"></i><span class="sidebar-mini-hide">Problemas</span>
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </div>
                 <!-- END Side Content -->

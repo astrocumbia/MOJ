@@ -74,7 +74,7 @@
                                     <tr>
                                         <td class="text-center">{{ $envio->id }}</td>
                                         <td class="text-center">{{ $envio->problema->nombre }}</td>
-                                        <td class="text-center">Código</td>
+                                        <td class="text-center"><a class="link-effect" onclick="downloadFile( { 'name' : '{{ $envio->codigo }}' , '_token':'{{csrf_token()}}'} , '{{ url('contest/envios/downloadFile') }}')">Código</a></td>
                                         <td class="text-center">
                                             @if( $envio->lenguaje == 1 )
                                                 <span class="label label-info">

@@ -20,7 +20,7 @@
 
 </head>
 
-<body onload="timer( new Date('2015/12/12 17:01:00'), new Date('2015/12/12 20:23:00') );">
+<body onload="timer( new Date( '{{$contest->fecha_inicio.' '.$contest->hora_inicio }}' ), new Date( '{{$contest->fecha_fin.' '.$contest->hora_fin }}' ) );">
 
 <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
 
@@ -45,21 +45,27 @@
                                 <i class="si si-trophy"></i><span class="sidebar-mini-hide">Concursos</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/admin/user">
-                                <i class="si si-user"></i><span class="sidebar-mini-hide">Usuarios</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/admin/team">
-                                <i class="si si-users"></i><span class="sidebar-mini-hide">Equipos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/admin/problem">
-                                <i class="si si-notebook"></i><span class="sidebar-mini-hide">Problemas</span>
-                            </a>
-                        </li>
+
+
+
+                        @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
+                            <li>
+                                <a href="/admin/user">
+                                    <i class="si si-user"></i><span class="sidebar-mini-hide">Usuarios</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/team">
+                                    <i class="si si-users"></i><span class="sidebar-mini-hide">Equipos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/problem">
+                                    <i class="si si-notebook"></i><span class="sidebar-mini-hide">Problemas</span>
+                                </a>
+                            </li>
+                        @endif
+
                     </ul>
                 </div>
                 <!-- END Side Content -->
@@ -78,7 +84,7 @@
 
         <ul class="col-md-11 nav-header pull-right">
             <li class=" pull-left">
-                <h2 class="font-w700 text-primary">Contest UTM</h2>
+                <h2 class="font-w700 text-primary">{{$contest->nombre}}</h2>
             </li>
 
             <li class="pull-right">
