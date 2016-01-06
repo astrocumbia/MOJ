@@ -34,6 +34,9 @@
         <!-- Page Content -->
         <div class="content">
 
+
+
+            @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
             <div class="row" style="padding: 0px 15px 10px 0px">
                 <div class="col-md-12">
                     <button class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-fadein" type="button">
@@ -41,7 +44,7 @@
                     </button>
                 </div>
             </div>
-
+            @endif
 
             <div class="col-lg-12">
                 <!-- Header BG Table -->
@@ -54,7 +57,9 @@
                                 <th class="text-center">Problema</th>
                                 <th class="text-center">Color</th>
                                 <th class="text-center">Categoria</th>
+                                @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
                                 <th class="text-center">Acciones</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -70,14 +75,16 @@
                                         <span class="label label-success">Junior</span>
                                     @endif
                                 </td>
-                                <td class="text-center">
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-editar" type="button" onclick="editarProblema({{$problem->id}});">
-                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                    </button>
-                                    <button class="btn btn-danger">
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                    </button>
-                                </td>
+                                @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
+                                    <td class="text-center">
+                                        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-editar" type="button" onclick="editarProblema({{$problem->id}});">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                        </button>
+                                        <button class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                @endif
                             </tr>
                             @endforeach
                             </tbody>
