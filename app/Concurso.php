@@ -41,7 +41,33 @@ class Concurso extends Model
 
 
     public function problems(){
-
         return $this->belongsToMany('App\Problem', 'contest_problem', 'contest_id', 'problem_id');
     }
+
+    public static function getTime($idEnvio){
+        $intentos =    DB::table('envios')
+                        ->join('concursos', 'concursos.id', '=', 'envios.id_concurso')
+                        ->select( DB::raw(' 
+                            timediff( CAST( envios.created_at AS TIME ) , 
+                            concursos.hora_inicio ) AS TIEMPO, 
+                            minute( timediff( CAST( envios.created_at AS TIME ) , concursos.hora_inicio ) ) +  
+                            HOUR( timediff( CAST( envios.created_at AS TIME ) , concursos.hora_inicio ) ) * 60
+                            as penalizacion
+                            ') )
+                        ->where('envios.id', $idEnvio)
+                        ->get();
+        $ans = $intentos[0];
+        return $ans->penalizacion;
+    }
+/*
+SELECT 
+timediff( CAST( envios.created_at AS TIME ) , 
+concursos.hora_inicio ) AS TIEMPO, 
+minute( timediff( CAST( envios.created_at AS TIME ) , concursos.hora_inicio ) ) +  
+HOUR( timediff( CAST( envios.created_at AS TIME ) , concursos.hora_inicio ) ) * 60
+
+FROM envios, concursos
+WHERE envios.id_concurso = concursos.id AND envios.id =2;
+*/
+
 }

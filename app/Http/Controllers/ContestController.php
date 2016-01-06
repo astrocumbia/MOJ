@@ -23,15 +23,23 @@ class ContestController extends Controller
     }
 
     public function judgeRun( Request $request ){
+        
+        $penalizacion = Concurso::getTime( $request->input('id_envio') );
 
+        if( $request->input('veredicto') != 1 ){
+            $penalizacion+=20;            
+        }
+        
         Envios::where( 'id' , $request->input('id_envio') )
             ->update([
                 'estado'    => 2,
                 'veredicto' => $request->input('veredicto'),
+                'penalizacion' => $penalizacion,
                 'id_juez'    => Auth::user()->id
             ]);
 
         return redirect('contest/envios/'.$request->input('concurso'));
+        
     }
 
     public function downloadFile( Request $request  ){
@@ -161,13 +169,14 @@ class ContestController extends Controller
         $problemas  =  $contest->problems()->get();
         $score      =  Scoreboard::get( $id ); 
         
+        
         return view('contest/score',
                     [   'contest' => $contest,
                         'num' => count($problemas),
                         'score' => $score
                     ]);   
+
         
-        //print_r( $score );
     }
 
 

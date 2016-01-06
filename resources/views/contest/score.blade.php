@@ -38,8 +38,10 @@
                         <table class="table table-borderless">
                             <thead>
                             <tr>
-                                <th class="text-center" style="width: 20px;">Resueltos</th>
+                                
                                 <th class="text-center" style="width: 20px;">Posición</th>
+                                <th class="text-center" style="width: 15%;">Tiempo</th>
+                                <th class="text-center" style="width: 20px;">Resueltos</th>
                                 <th class="text-center">Equipo</th>
                                 <th class="text-center" style="width: 10%;">Categoría</th>
                                 @for($i=0; $i < $num; $i++ )
@@ -51,11 +53,14 @@
                             @foreach($score as $team)
 
                             <tr class="active">
-                                <td>
-                                    {{$team->resueltos}}
-                                </td>
                                 <td class="text-center">
                                     <i class="fa fa-trophy" style="font-size: 2em; color: #FFD700;"></i>
+                                </td>
+                                <td class="text-center">
+                                    
+                                </td>
+                                 <td>
+                                    {{$team->resueltos}}
                                 </td>
                                 <td class="text-center">{{$team->nombre}}</td>
                                 <td class="text-center"><span class="label label-primary">Senior</span></td>

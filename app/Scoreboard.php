@@ -23,12 +23,10 @@ class Scoreboard extends Model
 	    return $solucion->intentos;
 	}
 
+
 	public static function getProblems( $idContest, $idUser )
 	{
-		/*
-		$idContest = 1;
-		$idUser = 2;
-		*/
+
 
 		$problemas = DB::table('problemas')
 					->join('contest_problem', 'contest_problem.problem_id', '=', 'problemas.id')
@@ -96,5 +94,4 @@ class Scoreboard extends Model
 
 	
 }
-
 
