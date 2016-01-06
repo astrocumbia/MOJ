@@ -159,8 +159,10 @@
                             </tbody>
                         </table>
                     </div>
+
                 </div>
                 <!-- END Bordered Table -->
+                
             </div>
         </div>
         <!-- END Page Content -->

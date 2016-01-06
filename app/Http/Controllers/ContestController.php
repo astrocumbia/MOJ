@@ -82,14 +82,14 @@ class ContestController extends Controller
 
         if( Auth::user()->rol == 1 || Auth::user()->rol == 2 ){
             $envios = Envios::where('id_concurso' , $contest_id )
-                ->orderBy('id' , 'asc' )
-                ->paginate( 10 );
+                ->orderBy('id' , 'desc' )
+                ->get();
         }
         else{
             $envios = Envios::where( 'id_concurso' , $contest_id )
                 ->where( 'id_usuario' , Auth::user()->id )
-                ->orderBy('id' , 'asc' )
-                ->paginate( 10 );
+                ->orderBy('id' , 'desc' )
+                ->get();
         }
 
         $contest = Concurso::find( $contest_id );

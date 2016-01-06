@@ -57,7 +57,7 @@
                                     <i class="fa fa-trophy" style="font-size: 2em; color: #FFD700;"></i>
                                 </td>
                                 <td class="text-center">
-                                    
+                                    {{$team->pena}}
                                 </td>
                                  <td>
                                     {{$team->resueltos}}

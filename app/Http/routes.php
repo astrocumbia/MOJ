@@ -12,6 +12,8 @@
 */
 
 Route::get('/', function () {
+	if (Auth::check())
+		return redirect('admin/home');
     return view('auth/login');
 });
  
