@@ -62,7 +62,7 @@
                                     @elseif($i==2)
                                         <i class="fa fa-trophy" style="font-size: 2em; color: #bd833e;"></i>
                                     @else
-                                        {{$i}}
+                                        {{$i+1}}
                                     @endif
                                 </td>
                                 <td class="text-center">
