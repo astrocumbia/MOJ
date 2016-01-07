@@ -43,7 +43,7 @@
                         <li class="nav-main-heading">
                             <span class="sidebar-mini-hide">Recursos</span></li>
                         <li>
-                            <a href="/admin/contest">
+                            <a href="{{url('/admin/contest')}}">
                                 <i class="si si-trophy"></i><span class="sidebar-mini-hide">Concursos</span>
                             </a>
                         </li>
@@ -52,17 +52,17 @@
 
                         @if( Auth::user()->rol == 1 || Auth::user()->rol == 2 )
                             <li>
-                                <a href="/admin/user">
+                                <a href="{{url('/admin/user')}}">
                                     <i class="si si-user"></i><span class="sidebar-mini-hide">Usuarios</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/admin/team">
+                                <a href="{{url('/admin/team')}}">
                                     <i class="si si-users"></i><span class="sidebar-mini-hide">Equipos</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/admin/problem">
+                                <a href="{{url(/admin/problem')}}">
                                     <i class="si si-notebook"></i><span class="sidebar-mini-hide">Problemas</span>
                                 </a>
                             </li>
@@ -98,12 +98,12 @@
                      <ul class="dropdown-menu dropdown-menu-right">
                         <li class="dropdown-header">Ajustes</li>
                         <li>
-                            <a tabindex="-1" href="base_pages_login.html">
+                            <a tabindex="-1" href="#">
                                 <i class="fa fa-user pull-right"></i>Perfil
                             </a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="/auth/logout">
+                            <a tabindex="-1" href="{{url('/auth/logout')}}">
                                 <i class="si si-logout pull-right"></i>Salir
                             </a>
                         </li>
