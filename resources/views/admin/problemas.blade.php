@@ -49,7 +49,7 @@
                             <tr>
                                 <td class="text-center">{{ $problema->id }}</td>
                                 <td>{{ $problema->nombre }}</td>
-                                <td class="text-center"><a onclick="showFile( { 'name' : '{{ $problema->pdf }}' , '_token':'{{csrf_token()}}'} , '{{ url('admin/problem/showDescription') }}' )" class="link-effect">Descripcion.pdf</a></td>
+                                <td class="text-center"><a onclick="showFile( { 'name' : '{{ $problema->pdf }}' , '_token':'{{csrf_token()}}'} , '{{url('admin/problem/showDescription')}}' )" class="link-effect">Descripcion.pdf</a></td>
                                 <td class="text-center"><a class="link-effect" onclick="downloadFile( { 'name' : '{{ $problema->in }}' , '_token':'{{csrf_token()}}'}  , '{{ url('admin/problem/downloadFile') }}')">Entrada</a></td>
                                 <td class="text-center"><a class="link-effect" onclick="downloadFile( { 'name' : '{{ $problema->out }}' , '_token':'{{csrf_token()}}'} , '{{ url('admin/problem/downloadFile') }}')">Salida</a></td>
                                 <td class="text-center">Positr0nix</td>
@@ -109,7 +109,7 @@
 
                         <div class="block-content">
 
-                            <form class="form-horizontal push-5-t" action="/admin/problem/add" method="POST" enctype="multipart/form-data" id="formadd" >
+                            <form class="form-horizontal push-5-t" action="{{url('/admin/problem/add')}}" method="POST" enctype="multipart/form-data" id="formadd" >
 
                                 {!! csrf_field() !!}
 
@@ -210,7 +210,7 @@
 
                         <div class="block-content">
 
-                            <form class="form-horizontal push-5-t" action="/admin/problem/edit" method="POST" enctype="multipart/form-data" id="formedit">
+                            <form class="form-horizontal push-5-t" action="{{url('/admin/problem/edit')}}" method="POST" enctype="multipart/form-data" id="formedit">
 
                                 {!! csrf_field() !!}
 

@@ -20,7 +20,7 @@
                     <!-- Register Form -->
                     <!-- jQuery Validation (.js-validation-register class is initialized in js/pages/base_pages_register.js) -->
                     <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                    <form class="js-validation-register form-horizontal push-50-t push-50" action="/auth/register" method="post">
+                    <form class="js-validation-register form-horizontal push-50-t push-50" action="{{url('/auth/register')}}" method="post">
                         {!! csrf_field() !!}
                         <div class="form-group">
                             <div class="col-xs-12">

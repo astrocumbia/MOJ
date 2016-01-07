@@ -35,16 +35,16 @@ class ProblemController extends Controller
 
 
     public function showDescription( Request $request ){
-        return '/files/'.$request->input('name');
+        return url('/files/').'/'.$request->input('name');
     }
 
     public function showDescriptionget( $name ){
         //aqui falta validar que el concurso no este activo o que sea administrador
-            return '/files/'.$name;
+            return url('/files/').'/'.$name;
     }
 
     public function downloadFile( Request $request ){
-        return '/files/'.$request->input('name');
+        return url('/files/').'/'.$request->input('name');
         //return response()->download('files/'.$request->input('name'));
     }
 

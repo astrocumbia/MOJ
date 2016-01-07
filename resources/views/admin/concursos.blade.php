@@ -51,7 +51,7 @@
                                         <img class="img-avatar img-avatar48" src="{{ asset('img/avatars/user.png') }}" />
                                     </td>
                                     <td class="font-w600">
-                                        <a class="link-effect" href="/contest/problemas/{{$concurso->id}}">{{$concurso->nombre}}</a>
+                                        <a class="link-effect" href="{{url('/contest/problemas')}}/{{$concurso->id}}">{{$concurso->nombre}}</a>
                                     </td>
                                     <td>{{$concurso->descripcion}}</td>
                                     <td>{{$concurso->fecha_inicio}} {{$concurso->hora_inicio}}</td>
@@ -78,7 +78,7 @@
                                                         >
                                                     <i class="fa fa-pencil"></i>
                                                 </button>
-                                                <a class="btn btn-danger" href="/admin/contest/del/{{$concurso->id}}"><i class="fa fa-times"></i><a/>
+                                                <a class="btn btn-danger" href="{{url('/admin/contest/del')}}/{{$concurso->id}}"><i class="fa fa-times"></i><a/>
                                             </div>
                                         </td>
                                     @endif
@@ -122,7 +122,7 @@
 
                     <div class="block-content">
 
-                        <form class="form-horizontal push-10-t push-10" action="/admin/contest/save" method="post" >
+                        <form class="form-horizontal push-10-t push-10" action="{{url('/admin/contest/save')}}" method="post" >
                             {!! csrf_field() !!}
                             <div class="form-group">
                                 <div class="col-xs-12">
@@ -218,7 +218,7 @@
 
                     <div class="block-content">
 
-                        <form class="form-horizontal push-10-t push-10" action="/admin/contest/edit" method="post" >
+                        <form class="form-horizontal push-10-t push-10" action="{{url('/admin/contest/edit')}}" method="post" >
                             {!! csrf_field() !!}
                             <input type="hidden" name="id" id="ide" />
 
