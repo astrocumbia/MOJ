@@ -18,7 +18,7 @@ use DB;
 class ContestController extends Controller
 {
     public function showDescription( Request $request ){
-        return '/files/'.$request->input('name');
+        return url('/files/').'/'.$request->input('name');
     }
 
 
@@ -48,7 +48,7 @@ class ContestController extends Controller
     }
 
     public function downloadFile( Request $request  ){
-        return '/files/codigos/'.$request->input('name');
+        return url('/files/codigos/').'/'.$request->input('name');
     }
 
 
