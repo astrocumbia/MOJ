@@ -13,6 +13,7 @@ use App\Problem;
 use App\Concurso;
 use App\Mensajes;
 use App\Scoreboard;
+use DB;
 
 class ContestController extends Controller
 {
@@ -106,6 +107,20 @@ class ContestController extends Controller
         return redirect('contest/problemas/'.$id);
     }
 
+    public function updateProblemas (Request $request)
+    {
+
+        DB::table('contest_problem')
+            ->where('problem_id', $request->input('problem_id') )
+            ->where('contest_id', $request->input('contest_id') )
+            ->update(['color' =>  $request->input('color') ]);
+        return redirect('contest/problemas/'.$request->input('contest_id'));   
+    }
+
+    public function delProblemas( Request $request ){
+        print_r( $request->input() );
+
+    }
 
     public function showProblemas( $contest_id )
     {
