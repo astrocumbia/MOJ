@@ -92,7 +92,7 @@
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li class="dropdown-header">Ajustes</li>
                         <li>
-                            <a tabindex="-1" href="base_pages_login.html">
+                            <a tabindex="-1" href="#">
                                 <i class="fa fa-user pull-right"></i>Perfil
                             </a>
                         </li>

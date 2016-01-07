@@ -43,7 +43,6 @@
                                 <th class="text-center" style="width: 15%;">Tiempo</th>
                                 <th class="text-center" style="width: 20px;">Resueltos</th>
                                 <th class="text-center">Equipo</th>
-                                <th class="text-center" style="width: 10%;">Categoría</th>
                                 @for($i=0; $i < $num; $i++ )
                                     <th class="text-center" style="width: 10%;">{{ chr(65 + $i) }}</th>
                                 @endfor
@@ -72,7 +71,6 @@
                                     {{$score[$i]->resueltos}}
                                 </td>
                                 <td class="text-center">{{$score[$i]->nombre}}</td>
-                                <td class="text-center"><span class="label label-primary">Senior</span></td>
                                 
                                 @foreach($score[$i]->problemas as $problema)
                                     @if( empty($problema->solucion) ) 
