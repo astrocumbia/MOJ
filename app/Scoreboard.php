@@ -65,10 +65,12 @@ class Scoreboard extends Model
 	    return $response;
 	}
 
-	public static function getPenalizacion( $idEquipo ){
+	public static function getPenalizacion( $idEquipo, $idContest ){
+		
 		$penalizacion = DB::table('envios')
 					->select( DB::raw('SUM(envios.penalizacion) as penalizacion') )
 					->where('id_usuario', $idEquipo)
+					->where('id_usuario', $idContest)
 					->get();	
 		$ans = $penalizacion[0];
 		return $ans->penalizacion;
@@ -87,7 +89,7 @@ class Scoreboard extends Model
 			$ans = (object)array( 
 						'nombre'=> $equipo->name, 
 						'problemas' => $problemas,
-						'pena' => Scoreboard::getPenalizacion($equipo->id), 
+						'pena' => Scoreboard::getPenalizacion($equipo->id, $idContest), 
 						'resueltos' => Scoreboard::getResueltos($idContest, $equipo->id)
 					);
 			array_push($contest,  $ans);
