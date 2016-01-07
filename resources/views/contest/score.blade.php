@@ -4,26 +4,26 @@
 
             <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 60px 0px;">
                 <li>
-                    <a href="/contest/problemas/{{$contest->id}}" >
+                    <a href="{{url('/contest/problemas')}}/{{$contest->id}}" >
                         <i class="fa fa-file-code-o"></i>
                         Problemas
                     </a>
                 </li>
             
                 <li >
-                    <a  href="/contest/envios/{{$contest->id}}" >
+                    <a  href="{{url('/contest/envios')}}/{{$contest->id}}" >
                         <i class="fa fa-paper-plane-o"></i>
                                 Envios
                     </a>
                 </li>
                 <li>
-                    <a  href="/contest/clarificaciones/{{$contest->id}}">
+                    <a  href="{{url('/contest/clarificaciones')}/{{$contest->id}}">
                         <i class="fa fa-weixin"></i>
                                 Clarificaciones
                     </a>
                 </li>
                 <li class="active">
-                    <a  href="/contest/score/{{$contest->id}}">
+                    <a  href="{{url('/contest/score')}}/{{$contest->id}}">
                         <i class="fa fa-trophy"></i>
                                 Scoreboard
                     </a>
