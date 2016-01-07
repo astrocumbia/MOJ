@@ -148,7 +148,7 @@
                     <h3 class="block-title"><i class="fa fa-pencil"></i>  Nuevo mensaje</h3>
                 </div>
                 <div class="block-content">
-                    <form class="form-horizontal push-10-t push-10" action="{{url('/contest/clarificaciones/add'}}" method="post">
+                    <form class="form-horizontal push-10-t push-10" action="{{url('/contest/clarificaciones/add')}}" method="post">
 
                         {!! csrf_field() !!}
 
