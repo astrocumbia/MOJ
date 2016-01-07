@@ -70,7 +70,7 @@ class Scoreboard extends Model
 		$penalizacion = DB::table('envios')
 					->select( DB::raw('SUM(envios.penalizacion) as penalizacion') )
 					->where('id_usuario', $idEquipo)
-					->where('id_usuario', $idContest)
+					->where('id_concurso', $idContest)
 					->get();	
 		$ans = $penalizacion[0];
 		return $ans->penalizacion;
