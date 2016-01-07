@@ -22,7 +22,7 @@
 
 </head>
 
-<body onload="timer( new Date( '{{$contest->fecha_inicio.' '.$contest->hora_inicio }}' ), new Date( '{{$contest->fecha_fin.' '.$contest->hora_fin }}' ) );">
+<body onload="timer( new Date( ' {{ str_replace('-','/',$contest->fecha_inicio.' '.$contest->hora_inicio ) }} ' ) , new Date( ' {{ str_replace('-','/', $contest->fecha_fin.' '.$contest->hora_fin ) }} ' ) );">
 
 <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
 
@@ -62,7 +62,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url(/admin/problem')}}">
+                                <a href="{{url('/admin/problem')}}">
                                     <i class="si si-notebook"></i><span class="sidebar-mini-hide">Problemas</span>
                                 </a>
                             </li>
