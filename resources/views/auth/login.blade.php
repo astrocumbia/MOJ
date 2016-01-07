@@ -13,7 +13,7 @@
                         <h3>Mictlán Online Judge</h3>
                         <p class="text-muted push-15-t">Inicio de sesi&oacute;n</p>
                     </div>
-                    <form class="js-validation-login form-horizontal push-30-t" action="/auth/login" method="post">
+                    <form class="js-validation-login form-horizontal push-30-t" action="{{url('/auth/login')}}" method="post">
                         {!! csrf_field() !!}
                         <div class="form-group">
                             <div class="col-xs-12">
@@ -51,7 +51,7 @@
                     </form>
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            &oacute; <br/> <a href="/auth/register">Registrarse</a>
+                            &oacute; <br/> <a href="{{url('/auth/login')}}">Registrarse</a>
                         </div>
                     </div>
                 </div>

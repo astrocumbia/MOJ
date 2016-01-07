@@ -130,7 +130,7 @@
 
                         <div class="block-content">
 
-                            <form class="js-validation-register form-horizontal push-5-t" action="/admin/user/add" method="post" id="addUserForm" >
+                            <form class="js-validation-register form-horizontal push-5-t" action="{{url('/admin/user/add')}}" method="post" id="addUserForm" >
                                 {!! csrf_field() !!}
                                 <div class="form-group">
                                     <div class="form-material form-material-info">
@@ -245,7 +245,7 @@
 
                         <div class="block-content">
 
-                            <form class="js-validation-register form-horizontal push-5-t" action="/admin/user/edit" method="post" id="editUserForm" >
+                            <form class="js-validation-register form-horizontal push-5-t" action="{{url('/admin/user/edit')}}" method="post" id="editUserForm" >
                                 {!! csrf_field() !!}
                                 <div class="form-group">
                                     <div class="form-material form-material-info">
