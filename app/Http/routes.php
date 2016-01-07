@@ -68,7 +68,8 @@ Route::get('/files/{name}','ProblemController@showDescriptionget');
 Route::group(['middleware' => ['auth'], 'prefix' => '/admin' ], function()
 {
 	Route::get('/home', function() {
-		return view('admin/home');    
+		//return view('admin/home');  
+		return redirect('admin/contest');  
 	});
 
 

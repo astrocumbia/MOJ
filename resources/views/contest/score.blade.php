@@ -50,29 +50,38 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($score as $team)
+                            @for( $i = 0; $i < sizeof($score); $i++ )
 
+                            
                             <tr class="active">
                                 <td class="text-center">
-                                    <i class="fa fa-trophy" style="font-size: 2em; color: #FFD700;"></i>
+                                    @if($i==0)
+                                        <i class="fa fa-trophy" style="font-size: 2em; color: #FFD700;"></i>
+                                    @elseif($i==1)
+                                        <i class="fa fa-trophy" style="font-size: 2em; color: #c4c2be;"></i>
+                                    @elseif($i==2)
+                                        <i class="fa fa-trophy" style="font-size: 2em; color: #bd833e;"></i>
+                                    @else
+                                        {{$i}}
+                                    @endif
                                 </td>
                                 <td class="text-center">
-                                    {{$team->pena}}
+                                    {{$score[$i]->pena}}
                                 </td>
                                  <td>
-                                    {{$team->resueltos}}
+                                    {{$score[$i]->resueltos}}
                                 </td>
-                                <td class="text-center">{{$team->nombre}}</td>
+                                <td class="text-center">{{$score[$i]->nombre}}</td>
                                 <td class="text-center"><span class="label label-primary">Senior</span></td>
                                 
-                                @foreach($team->problemas as $problema)
+                                @foreach($score[$i]->problemas as $problema)
                                     @if( empty($problema->solucion) ) 
                                     <td class="text-center">
                                         <span class="label label-danger"> {{$problema->intentos}} intentos </span>
                                     </td>
                                     @else
                                     <td class="text-center">
-                                        {{ $problema->intentos > 0 ? $problema->intentos : '' }}
+                                        {{ $problema->intentos > 0 ? $problema->intentos+1: '' }}
                                         <i class="fa fa-flag" style="font-size: 2em; color: {{$problema->color}};"></i>
                                         
                                     </td>
@@ -80,8 +89,7 @@
                                 @endforeach
                             </tr>
 
-
-                            @endforeach
+                            @endfor
 
                          
 
