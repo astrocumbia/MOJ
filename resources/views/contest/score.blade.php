@@ -40,9 +40,9 @@
                             <tr>
                                 
                                 <th class="text-center" style="width: 20px;">Posición</th>
+                                <th class="text-center">Equipo</th>
                                 <th class="text-center" style="width: 15%;">Tiempo</th>
                                 <th class="text-center" style="width: 20px;">Resueltos</th>
-                                <th class="text-center">Equipo</th>
                                 @for($i=0; $i < $num; $i++ )
                                     <th class="text-center" style="width: 10%;">{{ chr(65 + $i) }}</th>
                                 @endfor
@@ -61,16 +61,18 @@
                                     @elseif($i==2)
                                         <i class="fa fa-trophy" style="font-size: 2em; color: #bd833e;"></i>
                                     @else
-                                        {{$i}}
+                                        {{$i+1}}
                                     @endif
                                 </td>
+                                <td class="text-center">{{$score[$i]->nombre}}</td>
                                 <td class="text-center">
+
                                     {{$score[$i]->pena}}
                                 </td>
                                  <td>
                                     {{$score[$i]->resueltos}}
                                 </td>
-                                <td class="text-center">{{$score[$i]->nombre}}</td>
+
                                 
                                 @foreach($score[$i]->problemas as $problema)
                                     @if( empty($problema->solucion) ) 
