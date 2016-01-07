@@ -3,7 +3,7 @@
     <main id="main-container">
 
             <ul class="nav nav-pills push col-md-12 col-md-offset-3"  style="padding: 60px 0px;">
-                <li>
+                <li  class="active">
                     <a href="{{url('/contest/problemas')}}/{{$contest->id}}" >
                         <i class="fa fa-file-code-o"></i>
                         Problemas
@@ -22,7 +22,7 @@
                                 Clarificaciones
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a  href="{{url('/contest/score')}}/{{$contest->id}}">
                         <i class="fa fa-trophy"></i>
                                 Scoreboard
@@ -115,7 +115,7 @@
 
                             <div class="block-content">
 
-                                <form class="form-horizontal push-10-t push-10" action="/contest/problemas/save" method="post" >
+                                <form class="form-horizontal push-10-t push-10" action="{{url('/contest/problemas/save')}}" method="post" >
                                     {!! csrf_field() !!}
 
                                     <input value="{{$contest->id}}" name="contest_id" id="contest_id" type="hidden" />
@@ -175,7 +175,7 @@
 
                             <div class="block-content">
 
-                                <form class="form-horizontal push-10-t push-10" action="/contest/problemas/update" method="post" >
+                                <form class="form-horizontal push-10-t push-10" action="{{url('/contest/problemas/update')}}" method="post" >
                                     {!! csrf_field() !!}
 
 

@@ -12,7 +12,7 @@
                     </a>
                 </li>
             
-                <li >
+                <li  class="active">
                     <a  href="{{url('/contest/envios')}}/{{$contest->id}}" >
                         <i class="fa fa-paper-plane-o"></i>
                                 Envios
@@ -24,7 +24,7 @@
                                 Clarificaciones
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a  href="{{url('/contest/score')}}/{{$contest->id}}">
                         <i class="fa fa-trophy"></i>
                                 Scoreboard
@@ -188,7 +188,7 @@
 
                                     <div class="block-content">
 
-                                        <form class="form-horizontal push-10-t push-10" action="/contest/envios/addRun" method="post" enctype="multipart/form-data">
+                                        <form class="form-horizontal push-10-t push-10" action="{{url('/contest/envios/addRun')}}" method="post" enctype="multipart/form-data">
 
                                             {!! csrf_field() !!}
                                             <div class="form-group hidden">
@@ -269,7 +269,7 @@
 
                                     <div class="block-content">
 
-                                        <form class="form-horizontal push-10-t push-10" action="/contest/envios/judgeRun" method="post" enctype="multipart/form-data">
+                                        <form class="form-horizontal push-10-t push-10" action="{{url('/contest/envios/judgeRun')}}" method="post" enctype="multipart/form-data">
 
                                             {!! csrf_field() !!}
 
