@@ -80,9 +80,19 @@
                                         <button class="btn btn-primary" data-toggle="modal" data-target="#modal-editar" type="button" onclick="editarProblema({{$problem->id}});">
                                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                         </button>
-                                        <button class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+
+                                        <button class="btn btn-danger" onclick="deleteContestProblem(  
+    {   '_token':'{{csrf_token()}}', 
+        'contest_id' : {{$contest->id}},
+        'problem_id' : {{$problem->id}}  
+    }, 
+    '{{url('contest/problemas/del')}}' );">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </button>
+
+
+
+
                                     </td>
                                 @endif
                             </tr>

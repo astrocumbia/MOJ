@@ -29,9 +29,13 @@ function loadProblem( parametros , url ){
 function deleteUser( parametros , url ){
     _Post( parametros , url , null );
     location.reload();
-
 }
 
+
+function deleteContestProblem( parametros , url ){
+    _Post( parametros , url , null );
+    location.reload();
+}
 
 function deleteProblem( parametros , url ){
 

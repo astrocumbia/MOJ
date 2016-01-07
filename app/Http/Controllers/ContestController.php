@@ -118,7 +118,11 @@ class ContestController extends Controller
     }
 
     public function delProblemas( Request $request ){
-        print_r( $request->input() );
+        //print_r( $request->input() );
+        DB::table('contest_problem')
+            ->where('problem_id', $request->input('problem_id') )
+            ->where('contest_id', $request->input('contest_id') )
+            ->delete();
 
     }
 
