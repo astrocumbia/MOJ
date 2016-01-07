@@ -18,6 +18,7 @@ class Scoreboard extends Model
 	            ->where('envios.id_usuario', '=', $idUser)
 	            ->where('envios.id_concurso', '=', $idContest)
 	            ->where('envios.veredicto', '=', 1)
+	            ->where('envios.penalizacion', '>', 0)
 	            ->select(DB::raw('count(envios.id_problema) as intentos'))
 	            ->first();	
 	    return $solucion->intentos;

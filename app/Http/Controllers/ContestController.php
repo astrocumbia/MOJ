@@ -35,6 +35,12 @@ class ContestController extends Controller
             $penalizacion+=20;            
         }
         
+        $resuelto = Envios::resuelto( $request->input('id_envio') );
+        if( $resuelto == true )
+        {
+            $penalizacion = 0;
+        }
+
         Envios::where( 'id' , $request->input('id_envio') )
             ->update([
                 'estado'    => 2,
