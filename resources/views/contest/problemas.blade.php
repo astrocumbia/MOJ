@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li>
-                    <a  href="{{url('/contest/clarificaciones')}/{{$contest->id}}">
+                    <a  href="{{url('/contest/clarificaciones')}}/{{$contest->id}}">
                         <i class="fa fa-weixin"></i>
                                 Clarificaciones
                     </a>

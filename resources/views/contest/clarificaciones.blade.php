@@ -17,13 +17,13 @@
                                 Envios
                     </a>
                 </li>
-                <li>
-                    <a  href="{{url('/contest/clarificaciones')}/{{$contest->id}}">
+                <li class="active">
+                    <a  href="{{url('/contest/clarificaciones')}}/{{$contest->id}}">
                         <i class="fa fa-weixin"></i>
                                 Clarificaciones
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a  href="{{url('/contest/score')}}/{{$contest->id}}">
                         <i class="fa fa-trophy"></i>
                                 Scoreboard
@@ -148,7 +148,7 @@
                     <h3 class="block-title"><i class="fa fa-pencil"></i>  Nuevo mensaje</h3>
                 </div>
                 <div class="block-content">
-                    <form class="form-horizontal push-10-t push-10" action="/contest/clarificaciones/add" method="post">
+                    <form class="form-horizontal push-10-t push-10" action="{{url('/contest/clarificaciones/add'}}" method="post">
 
                         {!! csrf_field() !!}
 
