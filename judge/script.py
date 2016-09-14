@@ -1,9 +1,6 @@
 #!/usr/bin/python
 import os
-import sys
-import threading
 import time
-import psutil
 import subprocess
 
 suitURL = '/Users/alejandro/Sites/moj'
