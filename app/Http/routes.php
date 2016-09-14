@@ -47,6 +47,7 @@ Route::group(['prefix' => '/contest'], function()
 	Route::post('/clarificaciones/getMsg', 'ContestController@getMsg');
 
 	Route::get('/score/{id}', 'ContestController@showScore');
+	//Route::get('/score/{id}', 'ContestController@showProblemas');
 
 	Route::get('/test/{id}', 'ContestController@test');	
 

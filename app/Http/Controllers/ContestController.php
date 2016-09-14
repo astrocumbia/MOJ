@@ -62,23 +62,55 @@ class ContestController extends Controller
 
         $codigo = $request->file('codigo');
         $random = rand(1,100000);
-
         $codigo->move('files/codigos', $random.$codigo->getClientOriginalName());
+        $idProblema = $request->input('id_problema');
+        $problema = Problem::find( $idProblema );
+        $nombrePrograma = $random.$codigo->getClientOriginalName();
+        $lenguaje = $request->input('lenguaje');
+
+
+        if( $lenguaje == 2 ){ //c++
+
+            $suite_path      = '/Users/alejandro/Sites/moj';
+            $outans_path     = $suite_path.'/public/files/'.$problema->out;
+            $judge_path      = $suite_path.'/judge/';
+            $userProblemPath = $suite_path.'/public/files/codigos/'.$nombrePrograma;
+
+            shell_exec( 'cp '.$outans_path.' '.$judge_path.'ans.out');
+            shell_exec( 'cp '.$userProblemPath.' '.$judge_path.'user.cpp');
+            $respuesta = shell_exec( 'python '.$judge_path.'script.py');
+
+        }
+
+        else if ( $lenguaje == 1 ) { // c
+            
+            $suite_path      = '/Users/alejandro/Sites/moj';
+            $outans_path     = $suite_path.'/public/files/'.$problema->out;
+            $judge_path      = $suite_path.'/judge/';
+            $userProblemPath = $suite_path.'/public/files/codigos/'.$nombrePrograma;
+
+            shell_exec( 'cp '.$outans_path.' '.$judge_path.'ans.out');
+            shell_exec( 'cp '.$userProblemPath.' '.$judge_path.'user.cpp');
+            $respuesta = shell_exec( 'python '.$judge_path.'scriptc.py');
+        }
+        else{
+            
+            $respuesta = 10;
+        }
 
         $envio = new Envios(array(
 
             'id_usuario' => Auth::user()->id,
             'id_concurso' => $request->input('id_concurso'),
             'estado' => 1,
-            'veredicto' => 10,
+            'veredicto' => intval( $respuesta ),
             'id_juez' => -1,
-            'codigo' => $random.$codigo->getClientOriginalName(),
-            'id_problema' => $request->input('id_problema'),
+            'codigo' => $nombrePrograma,
+            'id_problema' => $idProblema,
             'lenguaje' => $request->input('lenguaje')
         ));
 
         $envio->save();
-
         return redirect('/contest/envios/'.$request->input('id_concurso') );
 
 
